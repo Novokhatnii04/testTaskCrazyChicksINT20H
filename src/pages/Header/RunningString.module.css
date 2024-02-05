@@ -1,0 +1,39 @@
+.root {
+   width: 100%;
+   position: relative;
+   animation: run 10s linear infinite;
+}
+
+.root div {
+   display: flex;
+   gap: 20px;
+}
+
+.running-text_wrapper {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   font-size: 28px;
+   font-family: Montserrat Bold;
+   text-transform: uppercase;
+}
+
+@keyframes run {
+   0% {
+      transform: translateZ(0%);
+   }
+
+   100% {
+      transform: translate3d(-100%, 0, 0);
+   }
+}
+
+@media (max-width: 1240px) {
+   .running-text_wrapper {
+      font-size: 23px;
+   }
+
+   .running-text_wrapper img {
+      height: 80%;
+   }
+}

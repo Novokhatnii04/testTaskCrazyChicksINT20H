@@ -1,0 +1,26 @@
+:root {
+  --text-colourBlack: black;
+  --button-background: #fcd702;
+  --text-colourWhite: #fff;
+  --text-colourGrey: #4C4C4C;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.global-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
+}
+
