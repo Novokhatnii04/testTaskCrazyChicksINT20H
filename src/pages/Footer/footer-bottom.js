@@ -50,7 +50,7 @@ function FooterBottom() {
         <div className={styles.payment}>
           <div className={styles.cards}>
           </div>
-          <div className={styles.text}>2023 VaruBy. All rights reserved.</div>
+          <div className={styles.text}>2024 INT20H | Crazy Chickens Team</div>
         </div>
       </div>
     </React.Fragment>

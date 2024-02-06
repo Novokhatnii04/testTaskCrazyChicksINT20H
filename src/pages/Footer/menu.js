@@ -3,9 +3,8 @@ import styles from "./styles.module.css";
 
 function Menu() {
     const menus = [
-      ["Help", "Contact", "Privacy Policy", "Terms And Conditions"],
-      ["Home", "About Us", "Services", "Partners"],
-      ["Catalog", "New arrival", "Sale", "Profile"]
+      ["Our partners:", "TacticUA", "Prof1 Group", "MILITORG"],
+      ["Soon:", "About Us", "Press", "Other projects"]
     ];
   
     return (

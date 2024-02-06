@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import footerImg from "@images/footerImg.png";
+import footerImg from "@images/footer.jpeg";
 import Button from "../Elements/button";
 import FooterBottom from "./footer-bottom";
 
@@ -12,17 +12,10 @@ function Footer() {
         style={{ backgroundImage: `url(${footerImg})` }}
       >
         <div className={styles.upperInfo}>
-          <div className={styles.upperTitle}>SUBSCRIBE</div>
+          <div className={styles.upperTitle}>DONATE TO UKRAINE ARMY FUNDRAISER</div>
+          <Button text={"Donate"} link={"https://savelife.in.ua/en/donate-en/#donate-army-card-monthly" } />
           <div className={styles.upperDescr}>
-            Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-          </div>
-          <div className={styles.inputBlock}>
-            <input
-              className={styles.upperInput}
-              placeholder="Enter your email"
-            ></input>
-            <Button text={"Subscribe"} />
+          The Charity Foundation "Come Back Alive" regularly and timely reports on its activities to all benefactors, state bodies and Ukrainian society.
           </div>
         </div>
         <FooterBottom />
