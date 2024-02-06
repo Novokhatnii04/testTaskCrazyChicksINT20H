@@ -1,10 +1,11 @@
-import './App.css';
+import "./App.css";
+import AuctionCards from "./pages/AuctionCards/auction";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello2</h1>
-    </div>
+    <>
+      <AuctionCards />
+    </>
   );
 }
 
