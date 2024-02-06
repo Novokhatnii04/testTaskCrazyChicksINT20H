@@ -5,8 +5,8 @@ import HomePage from './pages/Main/Main';
 function App() {
   return (
     <>
-      <HomePage />
-      {/* <AuctionCards /> */}
+      {/* <HomePage /> */}
+      <AuctionCards />
     </>
   );
 }

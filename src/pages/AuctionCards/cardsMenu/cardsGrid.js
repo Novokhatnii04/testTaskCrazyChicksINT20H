@@ -1,12 +1,18 @@
-import React from 'react'
-import Card from './card'
+import React, { useEffect } from "react";
+import Card from "./card";
 
-const CardsGrid = () => {
+const CardsGrid = ({ data: _data }) => {
   return (
-    <div className='cards_grid__wrapper'>
-      <Card/>
+    <div className="cards_grid__wrapper">
+      {_data.map((el) => {
+        return (
+          <div>
+            <Card title={el.title} />
+          </div>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default CardsGrid
+export default CardsGrid;

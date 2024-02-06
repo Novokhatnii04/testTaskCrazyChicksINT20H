@@ -1,5 +1,4 @@
-@import './assets/Fonts/Montserrat/stylesheet.css';
-@import './assets/Fonts/fonts.css';
+@import "./assets/Fonts/Montserrat/stylesheet.css";
 
 * {
   box-sizing: border-box;
