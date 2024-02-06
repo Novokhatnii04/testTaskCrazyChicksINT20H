@@ -3,8 +3,6 @@ import React from "react";
 import TextBlock from "../SecondPageText/textBlock";
 import Slider from "../Slider/Slider";
 import Question from "../Question/question";
-import Footer from "../Footer/footer";
-import Slot from "../Slot/Slot";
 import "./styles.css";
 
 
@@ -17,7 +15,6 @@ function HomePage() {
       <Slider />
       <Question />
     </div>
-      <Footer />
     </>
   );
 }

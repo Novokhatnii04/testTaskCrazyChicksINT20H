@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   border-radius: 40px 40px 0 0;
   display: flex;
-  margin-top: 29px;
+  margin-top: 40px;
   align-content: space-between;
   flex-wrap: wrap;
 }
@@ -25,7 +25,7 @@
 
 .upperInfo {
   width: 100%;
-  min-height: 404px;
+  min-height: 444px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@
 
 .upperTitle {
   color: #FFF;
-  font-family: Montserrat Normal;
+  /* font-family: Montserrat Normal; */
   font-size: 48px;
   line-height: 125%;
   text-align: center;
@@ -44,7 +44,7 @@
 
 .upperDescr {
   color: #3e3d3d;
-  font-family: Montserrat Normal;
+  /* font-family: Montserrat Normal; */
   font-size: 24px;
   text-align: center;
 }
@@ -54,7 +54,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 360px;
+  height: 318px;
   border-radius: 40px 40px 0px 0px;
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
@@ -86,12 +86,12 @@
 .menu div {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .menuTitle {
   color: rgb(255, 255, 255);
-  font-family: "Montserrat Normal";
+  /* font-family: Montserrat Normal; */
   font-size: 20px;
 }
 
@@ -124,7 +124,7 @@
 
 .buttonText {
   color: rgb(0, 0, 0);
-  font-family: "Montserrat Normal";
+  /* font-family: Montserrat Normal; */
   font-size: 16px;
   text-transform: uppercase;
 }
@@ -132,11 +132,13 @@
 .payment {
   display: flex;
   position: relative;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  padding: 35px 70px;
+  height: 62px;
   border-top: 1px solid rgb(255 255 255);
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4%;
+  color: wheat;
 }
 
 .cards {
@@ -146,17 +148,11 @@
   justify-content: space-between;
 }
 
-.text {
-  width: 300px;
-  height: 24px;
-  display: flex;
-  color: rgb(255, 255, 255);
-  font-family: "Montserrat Normal";
-  font-size: 16px;
-  position: relative;
-  top: -9px
+.cardIcon:hover{
+  outline: 1px solid black;
+  opacity: 0.7;
+  border-radius: 50%;
 }
-
 
 @media screen and (max-width: 668px) {
 
@@ -175,7 +171,7 @@
 
   .upperDescr {
     color: rgb(248, 248, 248);
-    font-family: "Montserrat Normal";
+    /* font-family: Montserrat Normal; */
     font-size: 18px;
   }
 

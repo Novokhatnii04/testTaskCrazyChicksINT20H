@@ -9,20 +9,6 @@ import Menu from "./menu";
 
 function FooterBottom() {
   const cardIcons = [insta, facebook, whatsup, mail];
-  const menu = [
-    "Help",
-    "Contact",
-    "Privacy Policy",
-    "Terms And Conditions",
-    "Home",
-    "About Us",
-    "Services",
-    "Partners",
-    "Catalog",
-    "New arrival",
-    "Sale",
-    "Profile",
-  ];
   return (
     <React.Fragment>
       <div className={styles.bottomInfo}>
@@ -47,11 +33,7 @@ function FooterBottom() {
             <Menu />
           </div>
         </div>
-        <div className={styles.payment}>
-          <div className={styles.cards}>
-          </div>
-          <div className={styles.text}>2024 INT20H | Crazy Chickens Team</div>
-        </div>
+        <div className={styles.payment}>2024 INT20H | Crazy Chickens Team</div>
       </div>
     </React.Fragment>
   );

@@ -10,7 +10,7 @@
   align-items: center;
   gap: 10px;
   text-align: center;
-  font-family: "Montserrat Medium";
+  /* font-family: Montserrat Medium; */
   font-size: 20px;
   border: none;
   z-index: 3;
@@ -20,86 +20,6 @@
   background: #FDEB80;
 }
 
-.scroll-sale-block,
-.scroll-sale-block-white {
-  position: absolute;
-  height: 58px;
-  width: 100%;
-  padding: 12px 24px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.scroll-sale-block {
-  top: 174px;
-  bottom: 0;
-  left: 185px;
-  transform: rotate(28.158deg);
-  background-color: var(--text-colourBlack);
-  color: var(--text-colourWhite);
-}
-
-.scroll-sale-block-white {
-  top: 437px;
-  bottom: 0;
-  left: 72px;
-  transform: rotate(-15deg);
-  background-color: var(--text-colourWhite);
-  color: var(--text-colourBlack);
-}
-
-
-.scroll-container {
-  position: relative;
-  display: flex;
-  width: 326%;
-  animation: textMove 8s linear infinite;
-  white-space: nowrap;
-  align-items: center;
-}
-
-@keyframes textMove {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-10%);
-  }
-}
-
-.scroll-sale-text {
-  font-family: "Montserrat Bold";
-  font-size: 28px;
-  margin-right: 24px;
-}
-
-.scroll-square {
-  width: 24px;
-  height: 24px;
-  background-color: var(--button-background);
-  transform: rotate(-45deg);
-  margin-right: 24px;
-}
-
-
-@media screen and (max-width: 1352px) {
-  .scroll-square {
-    width: 11.918px;
-    height: 11.918px;
-  }
-
-  .scroll-sale-text {
-    font-size: 14px;
-  }
-
-  .scroll-sale-block,
-  .scroll-sale-block-white {
-    height: 29px;
-    padding: 5.959px 11.918px;
-  }
-}
 
 @media screen and (max-width: 1092px) {
   .button-element {
@@ -111,23 +31,4 @@
     font-size: 16px;
   }
 
-  .scroll-sale-block {
-    margin: -118px 0 0 -88px;
-    ;
-  }
-
-  .scroll-sale-block-white {
-    margin: -176px 0 0 68px;
-    transform: rotate(-58.923deg);
-  }
-
-  .scroll-square {
-    width: 11.918px;
-    height: 11.918px;
-    flex-shrink: 0;
-  }
-
-  .scroll-sale-text {
-    font-size: 14px;
-  }
 }

@@ -43,7 +43,7 @@ function Slot() {
   ));
 
   return (
-    <div className={styles.sliderCard}>
+<div className={`${styles.slotCard} animate`}>
       <div className={styles.title}>Name</div>
       <div className={styles.slotSection}>
         <div className={styles.photoWrapper}>

@@ -14,7 +14,7 @@
 .newest-title {
   color: var(--text-colourBlack);
   text-align: center;
-  font-family: "Montserrat Medium";
+  font-family: Montserrat Medium;
   font-size: 48px;
 }
 
@@ -39,14 +39,14 @@
 
 .newest-grey-text {
   color: #999;
-  font-family: "Montserrat";
+  font-family: Montserrat;
   font-size: 16px;
   line-height: 24px;
 }
 
 .newest-black-text {
   color: #000;
-  font-family: "Montserrat";
+  font-family: Montserrat;
   font-size: 18px;
   line-height: 150%;
 }
@@ -59,7 +59,7 @@
 
 .newest-price {
   color: var(--text-colourBlack);
-  font-family: "Montserrat Bold";
+  font-family: Montserrat Bold;
   font-size: 20px;
 }
 
@@ -73,9 +73,10 @@
   border-radius: 12px;
   background: var(--button-background);
   color: var(--Primary-Primary-100, #000);
-  font-family: "Montserrat SemiBold";
+  font-family: Montserrat SemiBold;
   font-size: 16px;
 }
+
 .newest-button:hover {
   background: #FDEB80;
 }
@@ -173,6 +174,7 @@
 .newest-arrow-left {
   transform: rotate(180deg);
 }
+
 /* 
 .next-button:hover .newest-arrow-right,
 .prev-button:hover .newest-arrow-left {
@@ -184,9 +186,9 @@
 .prev-button:hover {
   /* transition: 0.5s all ease; */
   box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
--webkit-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
--moz-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
-border:none;
+  -webkit-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
+  -moz-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
+  border: none;
 }
 
 

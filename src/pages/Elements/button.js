@@ -1,8 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-const Button = ({ text, isResponsive, link }) => {
-  const buttonClassName = isResponsive ? "button-element responsive" : "button-element";
+const Button = ({ text, link }) => {
 
   const handleClick = () => {
     window.location.href = link;
@@ -10,7 +9,7 @@ const Button = ({ text, isResponsive, link }) => {
 
   return (
     <React.Fragment>
-      <button className={buttonClassName} onClick={handleClick}>
+      <button className="button-element" onClick={handleClick}>
         {text}
       </button>
     </React.Fragment>
