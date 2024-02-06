@@ -16,7 +16,6 @@ function HomePage() {
       <TextBlock />
       <Slider />
       <Question />
-      <Slot />
     </div>
       <Footer />
     </>

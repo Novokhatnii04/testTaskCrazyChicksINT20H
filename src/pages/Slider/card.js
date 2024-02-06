@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import sliderImg from "@images/flag.png";
+import { Link } from "react-router-dom";
 
 function SlotCard({  isActive }) {
   const cardClasses = isActive
@@ -25,7 +26,10 @@ function SlotCard({  isActive }) {
         <div className="newest-bottom-info">
           <div className="newest-price">20 $
           <div className="newest-grey-text">Last bid</div></div>
-          <div className="newest-button">Details</div>
+            <Link to={"/slot"} style={{ textDecoration: "none" }}>
+          <div className="newest-button">
+            Details</div>
+            </Link>
         </div>
       </div>
     </div>
