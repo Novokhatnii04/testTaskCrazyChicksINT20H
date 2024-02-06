@@ -1,5 +1,5 @@
 import React from "react";
-import FilterIcon from "../../../assets/Images/filterIcon.svg";
+import FilterIcon from "@images/filterIcon.svg";
 import CardsGrid from "./cardsGrid";
 
 const _lengthOfCards = 5;
