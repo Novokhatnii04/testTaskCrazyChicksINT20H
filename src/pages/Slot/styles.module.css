@@ -1,0 +1,109 @@
+.sliderCard {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+  border: 1.5px solid #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 40px 20px;
+}
+
+.title {
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 30px;
+  font-weight: 600;
+}
+.photoWrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.sliderPhoto {
+  width: 475px;
+  height: 474px;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px
+}
+
+.smallSliderPhotosWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.smallSliderPhoto, .active{
+  width: 145px;
+  height: 103px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px
+}
+.smallSliderPhoto:hover {
+  border: 2px solid #feef9a;
+}
+.active {
+  border: 4px solid #FCD702;
+}
+
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 50%;
+  padding: 0 7%;
+}
+
+.slotSection {
+  display: flex;
+}
+
+.greyText {
+  color: #999;
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+.bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.price {
+  color: var(--text-colourBlack);
+  font-family: "Montserrat Bold";
+  font-size: 20px;
+}
+
+.button {
+  width: 133px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--button-background);
+  color: var(--Primary-Primary-100, #000);
+  font-family: "Montserrat SemiBold";
+  font-size: 16px;
+}
+
+.button:hover {
+  background: #FDEB80;
+}
