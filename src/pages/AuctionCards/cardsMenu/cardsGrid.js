@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Card from "./card";
+import Card from "../Card/card";
 
 const CardsGrid = ({ data: _data }) => {
   return (

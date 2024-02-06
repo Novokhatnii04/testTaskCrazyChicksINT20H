@@ -1,15 +1,15 @@
+.header
+    width: 100%
+    height: 87px
+    background: blue
 #cards_auction__wrapper
     width: 100%
     height: 100%
+    margin: 0 auto
     display: flex
     flex-direction: column
     align-items: center
     font-family: Montserrat Normal
-
-    .header
-        width: 100%
-        height: 87px
-        background: blue
 
     .cards_auction__title
         margin-top: 100px
@@ -27,6 +27,7 @@
 
     .cards_auction__length
         width: 90%
+        max-width: 1440px
         height: 44px
         display: flex
         flex-direction: column
@@ -58,26 +59,32 @@
 
     .cards_grid__wrapper
         width: 90%
+        max-width: 1440px
+        max-height: 1415px
         margin-top: 30px
         display: grid
         grid-template-columns: repeat(4, 1fr)
+        grid-column-gap: 20px
         grid-row-gap: 32px
+        margin-bottom: 100px
 
         & > div
             display: flex
             flex-direction: column
             align-items: center
 
-@media screen and (max-width : 1400px)
+@media screen and (max-width : 1440px)
     #cards_auction__wrapper
         .cards_grid__wrapper
             grid-template-columns: repeat(3, 1fr)
-
+            max-height: 100%
 @media screen and (max-width : 1070px)
     #cards_auction__wrapper
         .cards_grid__wrapper
             grid-template-columns: repeat(2, 1fr)
+            max-height: 100%
 @media screen and (max-width : 1070px)
     #cards_auction__wrapper
         .cards_grid__wrapper
             grid-template-columns: repeat(1, 1fr)
+            max-height: 100%
