@@ -113,6 +113,7 @@
   align-content: center;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -146,7 +147,7 @@
 }
 
 .text {
-  width: 257px;
+  width: 300px;
   height: 24px;
   display: flex;
   color: rgb(255, 255, 255);
