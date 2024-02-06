@@ -1,0 +1,76 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+ul {
+   list-style-type: none;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
+.container {
+   padding: 24px 72px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-family: Montserrat Regular;
+}
+
+.logo {
+   cursor: pointer;
+}
+
+.sidebar-menu {
+   display: flex;
+   flex-wrap: wrap;
+   margin-bottom: auto;
+}
+
+.sidebar-item {
+   position: relative;
+   padding-right: 71px;
+   letter-spacing: 0.05px;
+}
+
+.sidebar-item p::after {
+   content: "";
+   background-image: url("../../../assets/HeaderImg/down-point.png");
+   background-repeat: no-repeat;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   transform: translate(12px, 7px);
+}
+
+.sidebar-item:first-child {
+   padding-left: 10px;
+}
+
+.sidebar-item:last-child {
+   display: flex;
+   align-items: center;
+   padding-right: 33px;
+}
+
+.change-language {
+   cursor: pointer;
+   margin-bottom: auto;
+   line-height: 140%;
+}
+
+.uk-language {
+   font-family: Montserrat Light;
+   color: #ccc;
+   letter-spacing: 2px;
+}
+
+@media (max-width: 992px) {
+   .container {
+      display: none;
+   }
+}

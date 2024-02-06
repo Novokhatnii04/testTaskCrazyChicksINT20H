@@ -1,0 +1,55 @@
+.text-block-wrapper {
+  color: var(--Primary-Primary-90, #191919);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 0 110px;
+  justify-content: center;
+}
+
+.mission-text {
+  font-family: "Montserrat ExtraBold";
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 125%;
+  width: 100%;
+  text-align: center;
+}
+
+.mission-text-left {
+  width: 100%;
+  font-family: "Montserrat Italic";
+  font-size: 26px;
+  line-height: 150%;
+  opacity: 0.8;
+  text-align: center;
+  font-style: italic;
+}
+
+@media screen and (max-width: 936px) {
+
+  .text-block-wrapper {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    padding: 0 0;
+    align-items: center;
+
+  }
+
+  .mission-text,
+  .mission-text-left {
+    width: 327px;
+  }
+
+  .mission-text {
+    font-size: 32px;
+  }
+
+  .mission-text-left {
+    font-size: 16px;
+  }
+}
