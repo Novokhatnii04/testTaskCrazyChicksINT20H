@@ -36,7 +36,7 @@
 
 .upperTitle {
   color: #FFF;
-  font-family: "Montserrat Medium";
+  font-family: Montserrat Normal;
   font-size: 48px;
   line-height: 125%;
   text-align: center;
@@ -44,7 +44,7 @@
 
 .upperDescr {
   color: #3e3d3d;
-  font-family: "Montserrat Medium";
+  font-family: Montserrat Normal;
   font-size: 24px;
   text-align: center;
 }
@@ -91,7 +91,7 @@
 
 .menuTitle {
   color: rgb(255, 255, 255);
-  font-family: "Montserrat Regular";
+  font-family: "Montserrat Normal";
   font-size: 20px;
 }
 
@@ -113,6 +113,7 @@
   align-content: center;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -123,7 +124,7 @@
 
 .buttonText {
   color: rgb(0, 0, 0);
-  font-family: "Montserrat Regular";
+  font-family: "Montserrat Normal";
   font-size: 16px;
   text-transform: uppercase;
 }
@@ -146,11 +147,11 @@
 }
 
 .text {
-  width: 257px;
+  width: 300px;
   height: 24px;
   display: flex;
   color: rgb(255, 255, 255);
-  font-family: "Montserrat Regular";
+  font-family: "Montserrat Normal";
   font-size: 16px;
   position: relative;
   top: -9px
@@ -174,7 +175,7 @@
 
   .upperDescr {
     color: rgb(248, 248, 248);
-    font-family: "Montserrat Regular";
+    font-family: "Montserrat Normal";
     font-size: 18px;
   }
 

@@ -1,12 +1,15 @@
-import './App.css';
+import "./App.css";
+import AuctionCards from "./pages/AuctionCards/auction";
 import HomePage from './pages/Main/Main';
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <>
+      {/* <HomePage /> */}
+      <AuctionCards />
+    </>
   );
 }
+
 
 export default App;
