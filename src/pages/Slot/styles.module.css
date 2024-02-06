@@ -107,3 +107,23 @@
 .button:hover {
   background: #FDEB80;
 }
+
+
+
+/* modal */
+
+.modal {
+  position: absolute;
+  /* position: fixed; */
+  top: 50%;
+  /* left: 50%; */
+  z-index: 99999;
+  float: left;
+  box-sizing: content-box;
+  padding: 15px;
+  border: 10px solid #6e6e6e;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 0px 20px #000;
+  color: #000;
+}
