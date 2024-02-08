@@ -3,8 +3,7 @@ import React from "react";
 import TextBlock from "../SecondPageText/textBlock";
 import Slider from "../Slider/Slider";
 import Question from "../Question/question";
-import Footer from "../Footer/footer";
-import Slot from "../Slot/Slot";
+import Map from "../map/map";
 import "./styles.css";
 
 
@@ -14,11 +13,10 @@ function HomePage() {
     {/* <Header /> */}
     <div className="global-wrapper">
       <TextBlock />
+      <Map />
       <Slider />
       <Question />
-      <Slot />
     </div>
-      <Footer />
     </>
   );
 }

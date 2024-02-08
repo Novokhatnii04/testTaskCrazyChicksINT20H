@@ -10,7 +10,7 @@
 
 .question-title {
   color: #000;
-  font-family: "Montserrat Medium";
+  font-family: Montserrat Medium;
   font-size: 48px;
   line-height: 125%;
 }
@@ -35,14 +35,14 @@
 .question-block-title {
   display: flex;
   color: #191919;
-  font-family: "Montserrat Medium";
+  font-family: Montserrat Medium;
   font-size: 32px;
   align-items: center;
   justify-content: space-between;
 }
 
 .question-block-answ {
-  font-family: "Montserrat Light";
+  font-family: Montserrat Light;
   font-size: 22px;
   line-height: 140%;
   animation: fadeInDown 0.5s ease-in-out forwards;

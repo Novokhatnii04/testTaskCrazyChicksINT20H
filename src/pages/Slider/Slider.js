@@ -57,12 +57,11 @@ const Slider = () => {
     const visibleCards = [];
     for (let i = 1; i <= 3; i++) {
       if (i === active) {
-        visibleCards.push(<Card isActive={true} />);
+        visibleCards.push(<Card key={i} isActive={true} />);
       } else {
-        visibleCards.push(<Card isActive={false} />);
+        visibleCards.push(<Card key={i} isActive={false} />);
       }
     }
-
     return visibleCards;
   };
 

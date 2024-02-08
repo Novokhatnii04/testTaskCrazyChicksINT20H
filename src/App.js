@@ -1,15 +1,22 @@
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuctionCards from "./pages/AuctionCards/auction";
-import HomePage from './pages/Main/Main';
+import MainPage from "./pages/Main/Main";
+import Slot from "./pages/Slot/Slot";
+import Footer from "./pages/Footer/footer";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <>
-      {/* <HomePage /> */}
-      <AuctionCards />
-    </>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<MainPage />} />
+        <Route path="/slot" element={<Slot />} />
+        <Route path="/auction" element={<AuctionCards />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
-
+};
 
 export default App;
