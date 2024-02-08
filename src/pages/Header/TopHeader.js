@@ -5,36 +5,40 @@ import profileImg from "../../assets/HeaderImg/profile-icon.svg";
 import { Link } from "react-router-dom";
 
 const TopHeader = () => {
-   return (
-      <div className={styles.container}>
-         <img className={styles.logo} src={logoImg} />
-         <div className={styles["sidebar-menu"]}>
-            <a href="#" className={styles["sidebar-item"]}>
-               <p>Text</p>
-            </a>
-            <a href="#" className={styles["sidebar-item"]}>
-               <p>Partners</p>
-            </a>
-            <a href="#" className={styles["sidebar-item"]}>
-               <p>Help</p>
-            </a>
-            <a href="#" className={styles["sidebar-item"]}>
-               <p>Contacts</p>
-            </a>
-         </div>
-
-         <div className={styles.icons}>
-            <button className={styles.icon}>
-               <img src={heartImg} />
-            </button>
-            <Link to={"/signup"}>
-               <button className={styles.icon}>
-                  <img src={profileImg} />
-               </button>
-            </Link>
-         </div>
+  return (
+    <div className={styles.container}>
+      <Link to={"/"}>
+        <button style={{ background: "none" }}>
+          <img className={styles.logo} src={logoImg} />
+        </button>
+      </Link>
+      <div className={styles["sidebar-menu"]}>
+        <a href="#" className={styles["sidebar-item"]}>
+          <p>Text</p>
+        </a>
+        <a href="#" className={styles["sidebar-item"]}>
+          <p>Partners</p>
+        </a>
+        <a href="#" className={styles["sidebar-item"]}>
+          <p>Help</p>
+        </a>
+        <a href="#" className={styles["sidebar-item"]}>
+          <p>Contacts</p>
+        </a>
       </div>
-   );
+
+      <div className={styles.icons}>
+        <button className={styles.icon}>
+          <img src={heartImg} />
+        </button>
+        <Link to={"/signup"}>
+          <button className={styles.icon}>
+            <img src={profileImg} />
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default TopHeader;
