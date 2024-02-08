@@ -12,7 +12,7 @@ function Slot() {
   let lastBid = 20;
   const [slotPhoto, setSlotPhoto] = useState([sliderImg, sliderImg1, test, test1, test2]);
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false); // Состояние для отображения модального окна
+  const [isModalVisible, setIsModalVisible] = useState(false); 
 
   const handlePriceChange = (price) => {
     setSelectedPrice(price); 
@@ -28,8 +28,8 @@ function Slot() {
   };
 
   const handlePlaceBidClick = () => {
-    if (!selectedPrice) { // Проверяем, является ли выбранная цена числом
-      setIsModalVisible(true); // Показываем модальное окно
+    if (selectedPrice) {
+      setIsModalVisible(true); 
     }
   };
 
