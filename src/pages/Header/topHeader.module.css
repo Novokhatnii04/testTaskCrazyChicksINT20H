@@ -13,6 +13,11 @@ a {
    color: black;
 }
 
+button {
+   background: none;
+   border: none;
+}
+
 .container {
    padding: 24px 72px;
    display: flex;
@@ -27,46 +32,17 @@ a {
 
 .sidebar-menu {
    display: flex;
+   gap: 65px;
    flex-wrap: wrap;
-   margin-bottom: auto;
 }
 
-.sidebar-item {
-   position: relative;
-   padding-right: 71px;
-   letter-spacing: 0.05px;
-}
-
-.sidebar-item p::after {
-   content: "";
-   background-image: url("../../../assets/HeaderImg/down-point.png");
-   background-repeat: no-repeat;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   transform: translate(12px, 7px);
-}
-
-.sidebar-item:first-child {
-   padding-left: 10px;
-}
-
-.sidebar-item:last-child {
+.icons {
    display: flex;
-   align-items: center;
-   padding-right: 33px;
+   gap: 25px;
 }
 
-.change-language {
+.icon {
    cursor: pointer;
-   margin-bottom: auto;
-   line-height: 140%;
-}
-
-.uk-language {
-   font-family: Montserrat Light;
-   color: #ccc;
-   letter-spacing: 2px;
 }
 
 @media (max-width: 992px) {

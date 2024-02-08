@@ -5,15 +5,15 @@ import Slot from "./pages/Slot/Slot";
 import Footer from "./pages/Footer/footer";
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<MainPage />} />
-        <Route path="/slot" element={<Slot />} />
-      </Routes>
-      <Footer />
-    </Router>
-  );
+   return (
+      <Router>
+         <Routes>
+            <Route exact path="/" element={<MainPage />} />
+            <Route path="/slot" element={<Slot />} />
+         </Routes>
+         <Footer />
+      </Router>
+   );
 };
 
 export default App;

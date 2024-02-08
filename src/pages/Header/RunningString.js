@@ -9,8 +9,6 @@ const runningString = Array(6)
             <span className={styles["running-text_wrapper"]} key={innerIndex}>
                <div>{item.text}</div>
                <img src={item.img} />
-               <div>{item.text}</div>
-               <img src={item.img} />
             </span>
          ))}
       </div>
