@@ -16,7 +16,6 @@
 
 .title {
   color: #000;
-  font-family: Montserrat;
   font-size: 30px;
   font-weight: 600;
 }
@@ -100,7 +99,6 @@
 
 .price {
   color: var(--text-colourBlack);
-  font-family: Montserrat Bold;
   font-size: 20px;
 }
 
@@ -114,15 +112,12 @@
   border-radius: 12px;
   background: var(--button-background);
   color: var(--Primary-Primary-100, #000);
-  font-family: Montserrat SemiBold;
   font-size: 16px;
 }
 
 .button:hover {
   background: #FDEB80;
 }
-
-
 
 /* modal */
 
