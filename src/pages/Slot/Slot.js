@@ -6,11 +6,29 @@ import test from "@images/test.png";
 import test1 from "@images/test1.png";
 import PriceDrop from "./PriceDrop";
 import ModalWindow from "./modal";
+import Question from "../Question/question";
 import Timer from "./timer";
 
 function Slot() {
   let lastBid = 20;
   let timerCount = 3;
+  let idLot = 1;
+
+  const questionInfo = [
+    {
+      title: "Payment",
+      desc: "Accepted forms of payment: American Express, Discover, MasterCard, Paypal, Visa, Wire Transfer",
+    },
+    {
+      title: "Shipping",
+      desc: "Buyer pays shipping charges.",
+    },
+    {
+      title: "Can I cancel a bid?",
+      desc: "You cannot cancel a bid once it has been submitted.",
+    },
+  ];
+
   const [selectedPhoto, setSlotPhoto] = useState(sliderImg);
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -45,8 +63,8 @@ function Slot() {
 
   return (
     <React.Fragment>
-      <div className={`${styles.slotCard} animate`}>
-        <div className={styles.title}>Name</div>
+      <div className={styles.slotCard}>
+        <div className={styles.title}>Lot # {idLot}</div>
         <div className={styles.slotSection}>
           <div className={styles.photoWrapper}>
             <div
@@ -59,10 +77,13 @@ function Slot() {
           </div>
 
           <div className={styles.infoBlock}>
+            <div className={styles.name}>Name</div>
             <div className={styles.descrText}>
               Blalala lalala lalal lalal lalalalalla lalalala lalalal lalalal
               lalalala lalal lalalalalaBlalala lalala lalal lalal lalalalalla
-              lalalala lalalal lalalal lalalala lalal lalalalala
+              lalalala lalalal lalalal lalalala lalal lalalalala Blalala lalala
+              lalal lalal lalalalalla lalalala lalalal lalalal lalalala lalal
+              lalalalalaBlalala lalala lalal lalal lalalalalla
             </div>
             <Timer endTime={auctionEndTime} />
             <div className={styles.bottomInfo}>
@@ -70,11 +91,14 @@ function Slot() {
                 {lastBid} $<div className={styles.greyText}>Last bid</div>
               </div>
               <PriceDrop lastBid={lastBid} onPriceChange={handlePriceChange} />
-              <div className={styles.button} onClick={handlePlaceBidClick}>
-                Place Bid
-              </div>
+            </div>
+            <div className={styles.button} onClick={handlePlaceBidClick}>
+              Place Bid
             </div>
           </div>
+        </div>
+        <div className={styles.question}>
+          <Question data={questionInfo} />
         </div>
         {isModalVisible && (
           <ModalWindow onClose={() => setIsModalVisible(false)} />

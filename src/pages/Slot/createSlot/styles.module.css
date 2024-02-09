@@ -1,0 +1,128 @@
+.slotCard {
+  transition: all 0.5s ease-in-out;
+  width: 90%;
+  height: auto;
+  border-radius: 40px;
+  border: 1.5px solid #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 40px 20px;
+  margin: 40px auto;
+  font-family: Montserrat;
+  max-width: 1382px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.textarea {
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+.slotSection {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.inputBlock {
+  flex: 1;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.lotTitle {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.description {
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.photoWrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.sliderPhoto {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.smallSliderPhotosWrapper {
+  display: flex;
+  overflow-x: auto;
+}
+
+.smallSliderPhoto {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sliderPhotoPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  color: #999;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.displayBlock {
+  flex: 1 1;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}

@@ -2,8 +2,6 @@
   transition: all 0.5s ease-in-out;
   width: 90%;
   height: auto;
-  border-radius: 40px;
-  border: 1.5px solid #999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,13 +9,14 @@
   gap: 16px;
   flex-shrink: 0;
   padding: 40px 20px;
-  margin: auto;
+  margin: 40px auto;
+  max-width: 1382px;
+  font-family: Montserrat;
 }
 
 .title {
   color: #000;
-  font-family: Montserrat;
-  font-size: 30px;
+  font-size: 48px;
   font-weight: 600;
 }
 
@@ -71,21 +70,24 @@
   padding: 0 7%;
 }
 
+.name{
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .slotSection {
   display: flex;
+  width: 100%;
 }
 
 .descrText {
   color: #999;
-  /* font-family: Montserrat; */
   font-size: 16px;
   line-height: 24px;
   width: 100%;
-  height: 100px;
 }
 .greyText {
   color: #999;
-  /* font-family: Montserrat; */
   font-size: 16px;
   line-height: 24px;
 }
@@ -95,6 +97,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  border: 1.5px solid #999;
+  padding: 10px;
+
 }
 
 
@@ -114,7 +120,6 @@
   border-radius: 12px;
   background: var(--button-background);
   color: var(--Primary-Primary-100, #000);
-  font-family: Montserrat SemiBold;
   font-size: 16px;
 }
 
@@ -122,6 +127,9 @@
   background: #FDEB80;
 }
 
+.question{
+  margin-top: 40px;
+}
 
 
 /* modal */
@@ -146,6 +154,15 @@
 
 .timer {
   text-align: center;
-  box-shadow: 0px 0px 20px #e54646;
-  color: #ff0000;
+  color: #000000;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+
+
+/*drop*/
+
+.dropTitle{
+  padding-right: 10px;
 }
