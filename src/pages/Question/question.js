@@ -24,7 +24,7 @@ const questionInfo = [
   },
 ];
 
-function Question() {
+const Question = ({data}) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleToggleAnswer = (index) => {
@@ -36,7 +36,7 @@ function Question() {
       <div className="question-wrapper">
         <div className="question-title">Got questions?</div>
         <div className="question-group">
-          {questionInfo.map(({ title, desc }, index) => (
+          {(data ? data : questionInfo).map(({ title, desc }, index) => (
             <div className="question-block" key={index}>
               <div
                 className="question-block-title"
