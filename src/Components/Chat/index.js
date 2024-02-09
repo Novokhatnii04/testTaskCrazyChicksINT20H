@@ -141,7 +141,7 @@ const ChatComponent = () => {
       </div>
       {showModal && (
         <Modal close={toggleModal}>
-          <FormNoRegister />
+          <FormNoRegister close={toggleModal} />
         </Modal>
       )}
     </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./form.module.css";
 import Button from "../../Button";
 
-const FormNoRegister = () => {
+const FormNoRegister = ({ close }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -20,31 +20,6 @@ const FormNoRegister = () => {
     isValid: true,
   });
 
-  // const handleValidation = (value, name) => {
-  //   switch (name) {
-  //     case "name":
-  //       if (value.length < 3) {
-  //         alert('Ім"я повинно складатися не менше ніж 3 букв ');
-  //         return false;
-  //       }
-  //       return true;
-  //     case "surname":
-  //       if (value.length < 3) {
-  //         alert("Призвище повинно складатися не менше ніж з 3 букв ");
-  //         return;
-  //       }
-  //       break;
-  //     case "phone":
-  //       if (value.length < 3) {
-  //         alert("Призвище повинно складатися не менше ніж з 3 букв ");
-  //       } else {
-  //       }
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     const { value: valueName, isValid: isValidName } = name;
     const { value: valueSurName, isValid: isValidSurName } = surname;
@@ -59,6 +34,8 @@ const FormNoRegister = () => {
         desc: valueDesc,
       };
       console.log(state);
+      close();
+      alert("SUCCESS");
       reset();
     } else {
       return;
