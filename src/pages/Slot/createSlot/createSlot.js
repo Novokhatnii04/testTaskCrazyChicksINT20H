@@ -42,7 +42,7 @@ function UISlot() {
   ));
 
   return (
-    <div className={styles.slotCard}>
+    <div className={`${styles.slotCard} animated`}>
       <div className={styles.title}>Lot Creation</div>
       <div className={styles.textarea}>
         We are immensely grateful for your initiative in creating a lot for the
@@ -116,7 +116,7 @@ function UISlot() {
           </div>
         </div>
         <div className={styles.displayBlock}>
-        <Button text={'See My Lot'}/>
+          <Button text={"See My Lot"} />
           {/* <div className={styles.title}>{slotData.name}</div>
           <div className={styles.slotSection}>
             <div className={styles.photoWrapper}>

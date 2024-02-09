@@ -8,7 +8,7 @@ const TopHeader = () => {
   return (
     <div className={styles.container}>
       <Link to={"/"}>
-        <button style={{ background: "none" }}>
+        <button style={{ background: "none" }} className={styles.logo_btn}>
           <img className={styles.logo} src={logoImg} />
         </button>
       </Link>
@@ -22,18 +22,13 @@ const TopHeader = () => {
         <a href="#" className={styles["sidebar-item"]}>
           <p>Help</p>
         </a>
-        <a href="#" className={styles["sidebar-item"]}>
-          <p>Contacts</p>
-        </a>
       </div>
 
       <div className={styles.icons}>
-        <button className={styles.icon}>
-          <img src={heartImg} />
-        </button>
-        <Link to={"/signup"}>
+        <Link to={"/createslot"}>
           <button className={styles.icon}>
-            <img src={profileImg} />
+            <span style={{ textTransform: "uppercase" }}>create slot</span>
+            <img src={heartImg} />
           </button>
         </Link>
       </div>

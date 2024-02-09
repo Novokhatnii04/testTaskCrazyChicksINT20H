@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const MainHeader = () => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} animated`}>
       <section className={styles.first}>
         <h1>Welcome to our Charity Auction</h1>
         <div className={styles["wrapper_text-button"]}>

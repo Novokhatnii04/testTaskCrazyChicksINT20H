@@ -16,8 +16,8 @@ const App = () => {
         <Route exact path="/" element={<MainPage />} />
         <Route path="/slot" element={<Slot />} />
         <Route path="/auction" element={<AuctionCards />} />
+        <Route path="/createslot" element={<UISlot />} />
       </Routes>
-      <UISlot />
       <Footer />
     </Router>
   );
