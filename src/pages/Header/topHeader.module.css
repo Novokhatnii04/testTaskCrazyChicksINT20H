@@ -1,52 +1,75 @@
 * {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
-   list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-   text-decoration: none;
-   color: black;
+  text-decoration: none;
+  color: black;
 }
 
 button {
-   background: none;
-   border: none;
+  background: none;
+  border: none;
 }
 
 .container {
-   padding: 24px 72px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   font-family: Montserrat Regular;
+  padding: 24px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Montserrat Regular;
 }
 
 .logo {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .sidebar-menu {
-   display: flex;
-   gap: 65px;
-   flex-wrap: wrap;
+  display: flex;
+  gap: 65px;
+  flex-wrap: wrap;
 }
 
 .icons {
-   display: flex;
-   gap: 25px;
+  display: flex;
+  gap: 25px;
 }
 
 .icon {
-   cursor: pointer;
+  cursor: pointer;
+  background-color: #fcd702;
+  border-radius: 40px;
+  width: 170px;
+  height: 40px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: Montserrat Bold;
+  transition: transform 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.06);
+}
+
+.logo_btn {
+  transition: transform 0.3s;
+}
+
+.logo_btn:hover {
+  transform: scale(1.06);
 }
 
 @media (max-width: 992px) {
-   .container {
-      display: none;
-   }
+  .container {
+    display: none;
+  }
 }

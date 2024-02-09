@@ -3,3 +3,17 @@
 * {
   box-sizing: border-box;
 }
+
+.animated {
+  animation: animated 0.3s;
+}
+
+@keyframes animated {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

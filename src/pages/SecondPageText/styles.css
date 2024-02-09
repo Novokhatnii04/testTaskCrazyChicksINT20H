@@ -10,7 +10,6 @@
 }
 
 .mission-text {
-  font-family: Montserrat ExtraBold;
   font-size: 48px;
   font-weight: 600;
   line-height: 125%;
@@ -20,7 +19,6 @@
 
 .mission-text-left {
   width: 100%;
-  font-family: Montserrat Italic;
   font-size: 26px;
   line-height: 150%;
   opacity: 0.8;

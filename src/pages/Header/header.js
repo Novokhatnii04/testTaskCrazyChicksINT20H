@@ -4,7 +4,6 @@ import MainHeader from "./MainHeader";
 function header() {
    return (
       <>
-         <TopHeader />
          <MainHeader />
       </>
    );

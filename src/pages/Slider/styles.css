@@ -14,7 +14,6 @@
 .newest-title {
   color: var(--text-colourBlack);
   text-align: center;
-  font-family: Montserrat Medium;
   font-size: 48px;
 }
 
@@ -39,14 +38,12 @@
 
 .newest-grey-text {
   color: #999;
-  font-family: Montserrat;
   font-size: 16px;
   line-height: 24px;
 }
 
 .newest-black-text {
   color: #000;
-  font-family: Montserrat;
   font-size: 18px;
   line-height: 150%;
 }
@@ -59,7 +56,6 @@
 
 .newest-price {
   color: var(--text-colourBlack);
-  font-family: Montserrat Bold;
   font-size: 20px;
 }
 
@@ -73,7 +69,6 @@
   border-radius: 12px;
   background: var(--button-background);
   color: var(--Primary-Primary-100, #000);
-  font-family: Montserrat SemiBold;
   font-size: 16px;
 }
 
@@ -115,7 +110,6 @@
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  background: none;
 }
 
 .newest-circle {

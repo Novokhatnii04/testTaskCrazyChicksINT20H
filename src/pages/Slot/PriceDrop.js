@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./styles.module.css";
 
 const PriceDropdown = ({lastBid, onPriceChange}) => {
   const [selectedPrice, setSelectedPrice] = useState(""); 
@@ -19,7 +20,7 @@ const PriceDropdown = ({lastBid, onPriceChange}) => {
 
   return (
     <div>
-      <label htmlFor="price">Select an amount of bid:</label>
+      <label className={styles.dropTitle} htmlFor="price">Select an amount of bid:</label>
       <select id="price" value={selectedPrice} onChange={handleChange}>
         <option value="">----</option>
         {bidOptions}
