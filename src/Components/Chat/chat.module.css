@@ -1,0 +1,155 @@
+.mainBoxPosition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boxList {
+  width: 280px;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1000px;
+  }
+}
+
+.item {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 500;
+  max-width: 200px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 250px;
+    font-size: 22px;
+  }
+}
+
+.title {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+.phone {
+  font-size: 30px;
+}
+
+.date {
+  font-size: 13px;
+  @media screen and (min-width: 768px) {
+    font-size: 15px;
+  }
+}
+.boxName {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 10px;
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
+    width: 350px;
+  }
+}
+.infoBoxUser {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.descBlue {
+  display: inline-block;
+  font-size: 13px;
+  background: linear-gradient(
+    55deg,
+    rgba(135, 206, 250, 0.3393732492997199) 0%,
+    rgba(135, 206, 250, 1) 82%
+  );
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 200%;
+  border-radius: 10px;
+  /* width: 300px; */
+  @media screen and (min-width: 768px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+  }
+}
+.descYelow {
+  display: inline-block;
+  font-size: 13px;
+  background: linear-gradient(
+    55deg,
+    rgba(240, 230, 140, 0.34217436974789917) 0%,
+    rgba(240, 230, 140, 1) 82%
+  );
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 200%;
+  border-radius: 10px;
+  /* width: 300px; */
+  @media screen and (min-width: 768px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+  }
+}
+
+.boxPagination {
+  display: flex;
+  width: 79px;
+}
+
+.currentPage {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navigationArrow {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.navigationArrowLeft:hover {
+  animation: moveLeft 1s ease infinite;
+}
+.navigationArrowRight:hover {
+  animation: moveRight 1s ease infinite;
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(
+      -10px
+    ); /* Измените это значение в зависимости от вашего дизайна */
+  }
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(
+      +10px
+    ); /* Измените это значение в зависимости от вашего дизайна */
+  }
+}

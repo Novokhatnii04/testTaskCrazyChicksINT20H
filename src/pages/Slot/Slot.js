@@ -8,6 +8,7 @@ import test2 from "@images/test2.png";
 import PriceDrop from "./PriceDrop";
 import ModalWindow from "./modal";
 import Timer from "./timer";
+import Chat from "../../Components/Chat/index";
 
 function Slot() {
   let lastBid = 20;
@@ -90,6 +91,7 @@ function Slot() {
           <ModalWindow onClose={() => setIsModalVisible(false)} />
         )}
       </div>
+      <Chat />
     </React.Fragment>
   );
 }

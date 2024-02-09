@@ -2,7 +2,7 @@
   --text-colourBlack: black;
   --button-background: #fcd702;
   --text-colourWhite: #fff;
-  --text-colourGrey: #4C4C4C;
+  --text-colourGrey: #4c4c4c;
 }
 
 *,
@@ -21,6 +21,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
+  font-family: Montserrat Normal;
   align-content: center;
 }
-

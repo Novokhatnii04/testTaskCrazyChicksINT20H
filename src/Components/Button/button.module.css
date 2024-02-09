@@ -1,0 +1,60 @@
+.buttonElementBig {
+  color: var(--text-colourBlack);
+  background: var(--button-background);
+  border-radius: 24px;
+  display: flex;
+  width: 208px;
+  height: 64px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  /* font-family: Montserrat Medium; */
+  font-size: 20px;
+  border: none;
+  z-index: 3;
+}
+.buttonElement {
+  color: var(--text-colourBlack);
+  background: var(--button-background);
+  border-radius: 24px;
+  display: flex;
+  width: 208px;
+  height: 40px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  /* font-family: Montserrat Medium; */
+  font-size: 20px;
+  border: none;
+  z-index: 3;
+}
+
+.buttonElement:hover {
+  background: #fdeb80;
+}
+.buttonElementBig:hover {
+  background: #fdeb80;
+}
+
+@media screen and (min-width: 1092px) {
+  .buttonElementBig {
+    width: 327px;
+    padding: 10px 24px;
+    gap: 10px;
+    height: 54px;
+    border-radius: 16px;
+    font-size: 16px;
+  }
+  .buttonElement {
+    width: 327px;
+    padding: 10px 24px;
+    gap: 10px;
+    height: 40px;
+    border-radius: 16px;
+    font-size: 16px;
+  }
+}
