@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import ModalWindow from "../modal";
 import PriceDrop from "../PriceDrop";
 import Timer from "../timer";
+import Button from "../../Elements/button";
 
 function UISlot() {
   const [slotData, setSlotData] = useState({
@@ -67,7 +68,7 @@ function UISlot() {
               value={slotData.startingBid}
               onChange={handleInputChange}
               className={styles.lotTitle}
-              placeholder="Starting Bid"
+              placeholder="Starting Bid ($)"
               required
             />
             <input
@@ -115,39 +116,34 @@ function UISlot() {
           </div>
         </div>
         <div className={styles.displayBlock}>
-          <div className={styles.slotCardEx}>
-            <div className={styles.title}>{slotData.name}</div>
-            <div className={styles.slotSection}>
-              <div className={styles.photoWrapper}>
-                {/* <div
+        <Button text={'See My Lot'}/>
+          {/* <div className={styles.title}>{slotData.name}</div>
+          <div className={styles.slotSection}>
+            <div className={styles.photoWrapper}>
+              <div
               className={styles.sliderPhoto}
-              style={{ backgroundImage: `url(${selectedPhoto})` }}
-            ></div> */}
-                <div className={styles.smallSliderPhotosWrapper}>
-                  {smallSliderPhotos}
-                </div>
-              </div>
-
-              <div className={styles.infoBlock}>
-                <div className={styles.descrText}>{slotData.description}</div>
-                {slotData.auctionDuration && (
-                  <Timer endTime={slotData.auctionDuration} />
-                )}
-                <div className={styles.bottomInfo}>
-                  {slotData.startingBid && (
-                    <div className={styles.price}>
-                      {slotData.startingBid} $
-                      <div className={styles.greyText}>Last bid</div>
-                    </div>
-                  )}
-
-                  {/* <div className={styles.button} onClick={handlePlaceBidClick}>
-                 Place Bid
-               </div> */}
-                </div>
+              style={{ backgroundImage: `url(${slotData.photos})` }}
+            ></div>
+              <div className={styles.smallSliderPhotosWrapper}>
+                {smallSliderPhotos}
               </div>
             </div>
-          </div>
+
+            <div className={styles.infoBlock}>
+              <div className={styles.descrText}>{slotData.description}</div>
+              {slotData.auctionDuration && (
+                <Timer endTime={slotData.auctionDuration} />
+              )}
+              <div className={styles.bottomInfo}>
+                {slotData.startingBid && (
+                  <div className={styles.price}>
+                    {slotData.startingBid} $
+                    <div className={styles.greyText}>Last bid</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
       {isModalVisible && (
