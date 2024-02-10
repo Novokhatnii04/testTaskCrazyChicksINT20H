@@ -1,7 +1,7 @@
 import styles from "./RunningString.module.css";
 import { data } from "./dataHeader";
 
-const runningString = Array(6)
+const runningString = Array(20)
    .fill()
    .map((_, index) => (
       <div key={index}>

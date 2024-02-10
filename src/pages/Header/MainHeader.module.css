@@ -46,7 +46,6 @@
    border-radius: 40px;
    width: 130px;
    height: 40px;
-   margin-right: 40px;
 }
 
 .second {
@@ -64,7 +63,7 @@
    bottom: 227px;
    left: -30px;
    background-color: #fff;
-   width: 110%;
+   width: 125%;
    height: 58px;
    transform: rotate(-6.6deg);
    gap: 22px;
@@ -78,14 +77,25 @@
       height: 50px;
       bottom: 190px;
    }
+   
 }
 
 @media (max-width: 767px) {
+   .container {
+      padding: 10px 42px 30px 42px;
+   }
+   .second {
+      display: none;
+   }
+   .first {
+      width: 100%;
+      align-items: center;
+   }
+   .first h1 {
+      max-width: calc(100% - 2*42px);
+      font-size: 6.6vw;
+      text-align: center;
+    }
+    
 }
 
-@media (max-width: 480px) {
-   .stripe {
-      height: 35px;
-      bottom: 240px;
-   }
-}

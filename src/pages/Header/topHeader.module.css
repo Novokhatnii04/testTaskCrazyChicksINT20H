@@ -69,7 +69,20 @@ button {
 }
 
 @media (max-width: 992px) {
-  .container {
+  .container{
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 179px;
+    align-content: center;
+  }
+  
+
+  .sidebar-menu {
     display: none;
+  }
+
+  .icon{
+    margin: 0;
   }
 }
