@@ -36,6 +36,17 @@ const _cardsData = [
 ];
 
 const cardsMenu = () => {
+  // const sendJsonData = async () => {
+  //   try {
+  //     let response = await fetch("http://localhost:9090/api/v1/auth/register", {
+  //       method: "GET",
+  //       // body: JSON.stringify(testmail1)
+  //     }).then((el) => el.json());
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
+
   return (
     <>
       <div className="cards_auction__length">

@@ -6,7 +6,7 @@ import TopHeader from "../Header/TopHeader";
 const AuctionCards = () => {
   return (
     <>
-      <div id="cards_auction__wrapper">
+      <div id="cards_auction__wrapper" className="animated">
         <div className="cards_auction__title">
           <span>Active auctions</span>
         </div>

@@ -63,7 +63,7 @@ function UISlot() {
   ));
 
   return (
-    <div className={styles.slotCard}>
+    <div className={`${styles.slotCard} animated`}>
       <div className={styles.title}>Lot Creation</div>
       <div className={styles.textarea}>
         We are immensely grateful for your initiative in creating a lot for the

@@ -7,17 +7,17 @@ import Map from "../map/map";
 import "./styles.css";
 
 function HomePage() {
-   return (
-      <>
-         <Header />
-         <div className="global-wrapper">
-            <TextBlock />
-            <Map />
-            <Slider />
-            <Question />
-         </div>
-      </>
-   );
+  return (
+    <>
+      <Header />
+      <div className="global-wrapper animated">
+        <TextBlock />
+        <Map />
+        <Slider />
+        <Question />
+      </div>
+    </>
+  );
 }
 
 export default HomePage;

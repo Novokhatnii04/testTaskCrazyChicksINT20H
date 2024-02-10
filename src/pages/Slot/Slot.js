@@ -8,6 +8,7 @@ import PriceDrop from "./PriceDrop";
 import ModalWindow from "./modal";
 import Question from "../Question/question";
 import Timer from "./timer";
+import Chat from "../../Components/Chat/index";
 
 function Slot() {
   let lastBid = 20;
@@ -63,7 +64,7 @@ function Slot() {
 
   return (
     <React.Fragment>
-      <div className={styles.slotCard}>
+      <div className={`${styles.slotCard} animated`}>
         <div className={styles.title}>Lot # {idLot}</div>
         <div className={styles.slotSection}>
           <div className={styles.photoWrapper}>
@@ -103,6 +104,7 @@ function Slot() {
           <ModalWindow onClose={() => setIsModalVisible(false)} />
         )}
       </div>
+      <Chat />
     </React.Fragment>
   );
 }

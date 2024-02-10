@@ -11,7 +11,7 @@ function SlotCard({ isActive, title }) {
     : `${styles["slider-photo"]}`;
 
   return (
-    <div className={cardClasses} clas>
+    <div className={cardClasses}>
       <div
         className={photoClasses}
         style={{ backgroundImage: `url(${sliderImg})` }}
