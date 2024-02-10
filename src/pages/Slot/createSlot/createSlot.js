@@ -3,9 +3,10 @@ import styles from "./styles.module.css";
 import ModalWindow from "../modal";
 import PriceDrop from "../PriceDrop";
 import Timer from "../timer";
-import Button from "../../Elements/button";
 
 function UISlot() {
+  let startDate = new Date();
+
   const [slotData, setSlotData] = useState({
     name: "",
     description: "",
@@ -23,14 +24,34 @@ function UISlot() {
 
   const handlePhotoUpload = (e) => {
     const files = e.target.files;
+    const maxPhotos = 4;
+    if (files.length > maxPhotos) {
+      alert(`You can upload a maximum of ${maxPhotos} photos.`);
+      return;
+    }
     const urls = Array.from(files).map((file) => URL.createObjectURL(file));
     setSlotData({ ...slotData, photos: urls });
   };
 
   const handlePlaceBidClick = () => {
-    if (selectedPrice) {
-      setIsModalVisible(true);
+    const { name, description, startingBid, auctionDuration, photos } = slotData;
+  
+    if (!name || !description || !startingBid || !auctionDuration || photos.length === 0) {
+      alert("Please fill in all fields.");
+      return;
+    } else {
+      setIsModalVisible(true)
     }
+  
+    // все в кучу, щоб відправии на бек
+    const formData = {
+      name,
+      description,
+      startingBid,
+      auctionDuration,
+      photos,
+    };
+
   };
 
   const smallSliderPhotos = slotData.photos.map((src, index) => (
@@ -116,34 +137,20 @@ function UISlot() {
           </div>
         </div>
         <div className={styles.displayBlock}>
-        <Button text={'See My Lot'}/>
-          {/* <div className={styles.title}>{slotData.name}</div>
-          <div className={styles.slotSection}>
-            <div className={styles.photoWrapper}>
-              <div
-              className={styles.sliderPhoto}
-              style={{ backgroundImage: `url(${slotData.photos})` }}
-            ></div>
-              <div className={styles.smallSliderPhotosWrapper}>
-                {smallSliderPhotos}
-              </div>
-            </div>
-
-            <div className={styles.infoBlock}>
-              <div className={styles.descrText}>{slotData.description}</div>
+          <div className={styles.name}>{slotData.name}</div>
+          <div className={styles.descrText}>{slotData.description}</div>
               {slotData.auctionDuration && (
-                <Timer endTime={slotData.auctionDuration} />
+                <Timer days={slotData.auctionDuration}  startDate={startDate}/>
               )}
-              <div className={styles.bottomInfo}>
                 {slotData.startingBid && (
+              <div className={styles.bottomInfo}>
                   <div className={styles.price}>
                     {slotData.startingBid} $
                     <div className={styles.greyText}>Last bid</div>
                   </div>
-                )}
+                    <PriceDrop lastBid={slotData.startingBid} />
               </div>
-            </div>
-          </div> */}
+                )}
         </div>
       </div>
       {isModalVisible && (

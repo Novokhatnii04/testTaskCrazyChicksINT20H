@@ -136,9 +136,7 @@
 
 .modal {
   position: absolute;
-  /* position: fixed; */
-  top: 50%;
-  /* left: 50%; */
+  top: 20%;
   z-index: 99999;
   float: left;
   box-sizing: content-box;
@@ -165,4 +163,37 @@
 
 .dropTitle{
   padding-right: 10px;
+}
+
+
+@media screen and (max-width: 936px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .descrText{
+    font-size: 12px;
+  }
+
+  .sliderPhoto {
+  width: 0;
+  }
+
+  .bottomInfo{
+    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  
+  }
+
+  .price,  .greyText{
+    font-size: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .price {
+    width: 100%;
+  }
 }

@@ -15,6 +15,9 @@ const MainHeader = () => {
           <Link to="/auction" >
             <button>Auctions</button>
           </Link>
+          <Link to="/newauction" >
+            <button>Create New Auction</button>
+          </Link>
         </div>
         <img src={firstSectionImg} />
       </section>

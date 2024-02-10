@@ -22,6 +22,14 @@
   margin-bottom: 10px;
 }
 
+
+.name{
+  font-size: 20px;
+  font-weight: 600;
+
+}
+
+
 .textarea {
   margin-bottom: 20px;
   font-size: 20px;
@@ -62,6 +70,15 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
+}
+
+.descrText {
+  color: #999;
+  font-size: 16px;
+  line-height: 24px;
+  width: 80%;
+  max-width: 80%; /* добавьте эту строку */
+  overflow-wrap: break-word;
 }
 
 .photoWrapper {
@@ -124,10 +141,44 @@
 }
 
 .displayBlock {
-  flex: 1 1;
-  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 53px;
+  width: 60%;
+  padding: 0 3%;
+  justify-content: flex-start;
+}
+
+.bottomInfo{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  border: 1.5px solid #999;
+  padding: 10px;
+}
+
+.price{
+    color: var(--text-colourBlack);
+    font-family: Montserrat Bold;
+    font-size: 20px;
+}
+
+.greyText{
+  color: #999;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.error {
+  border-color: red;
+}
+
+
+@media screen and (max-width:762px) {
+  .displayBlock{
+    width: 0;
+    height: 0;
+    visibility: collapse;
+  }
 }
