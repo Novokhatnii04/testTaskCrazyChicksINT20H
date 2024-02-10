@@ -55,7 +55,7 @@ function UISlot() {
       errors.startingBid = "Starting bid must be a number.";
     }
     if (!auctionDuration || isNaN(auctionDuration) || auctionDuration > 5) {
-      errors.auctionDuration = "Auction duration must be a number less than or equal to 5.";
+      errors.auctionDuration = "Maximum auction duration 5 days.";
     }
     if (!description || description.length > 360) {
       errors.description = "Description must be less than 360 characters.";
