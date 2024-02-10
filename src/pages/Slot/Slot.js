@@ -14,6 +14,7 @@ function Slot() {
   let lastBid = 20;
   let timerCount = 3;
   let idLot = 1;
+  let startDate="2024-02-14T12:30:00";
 
   const questionInfo = [
     {
@@ -33,7 +34,6 @@ function Slot() {
   const [selectedPhoto, setSlotPhoto] = useState(sliderImg);
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const auctionEndTime = Date.now() + timerCount * 24 * 60 * 60 * 1000;
 
   const handlePriceChange = (price) => {
     setSelectedPrice(price);
@@ -76,7 +76,6 @@ function Slot() {
               {smallSliderPhotos}
             </div>
           </div>
-
           <div className={styles.infoBlock}>
             <div className={styles.name}>Name</div>
             <div className={styles.descrText}>
@@ -86,7 +85,7 @@ function Slot() {
               lalal lalal lalalalalla lalalala lalalal lalalal lalalala lalal
               lalalalalaBlalala lalala lalal lalal lalalalalla
             </div>
-            <Timer endTime={auctionEndTime} />
+            <Timer days={timerCount} startDate={startDate}/>
             <div className={styles.bottomInfo}>
               <div className={styles.price}>
                 {lastBid} $<div className={styles.greyText}>Last bid</div>

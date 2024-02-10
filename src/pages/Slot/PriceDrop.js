@@ -7,7 +7,9 @@ const PriceDropdown = ({lastBid, onPriceChange}) => {
   const handleChange = (event) => {
     const price = event.target.value;
     setSelectedPrice(price);
-    onPriceChange(price);
+    if (onPriceChange) {
+      onPriceChange(price);
+    }
   };
 
   const bidValues = [2, 3, 4, 5];

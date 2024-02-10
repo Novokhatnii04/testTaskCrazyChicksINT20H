@@ -164,14 +164,15 @@
   border-radius: 50%;
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 1029px) {
 
   .footerWrapper {
-    height: 1512px;
+    height: 1038px;
   }
 
   .upperInfo {
     padding: 72px 25% 36px 25%;
+    min-height: 549px;
   }
 
   .upperTitle {
@@ -180,21 +181,31 @@
   }
 
   .upperDescr {
-    color: rgb(248, 248, 248);
-    font-family: "Montserrat Normal";
     font-size: 18px;
   }
 
   .mainInfo {
     flex-direction: column;
+    padding: 32px 0 52px 0;
+    align-items: center;
+    justify-content: space-around;
+    height: 85%;
   }
 
   .menu {
     flex-direction: column;
-    width: 0;
+    align-items: center;
   }
 
   .menu div {
     margin-bottom: 4px;
+  }
+
+  .bottomInfo {
+    height: 50%;
+  }
+
+  .payment {
+    height: 82px;
   }
 }
