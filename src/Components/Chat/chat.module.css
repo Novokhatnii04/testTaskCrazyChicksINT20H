@@ -112,6 +112,7 @@
 .boxPagination {
   display: flex;
   width: 79px;
+  align-items: center;
 }
 
 .currentPage {
