@@ -133,19 +133,75 @@
 
 /* modal */
 
-.modal {
-  position: absolute;
-  top: 20%;
-  z-index: 99999;
-  float: left;
-  box-sizing: content-box;
-  padding: 15px;
-  border: 10px solid #6e6e6e;
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0px 0px 20px #000;
-  color: #000;
+.boxForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+
+  align-items: center;
+  @media screen and (min-width: 320px) {
+    width: 260px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 260px;
+  flex-direction: column;
+
+  @media screen and (min-width: 320px) {
+    width: 260px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
+}
+
+.otherText {
+  text-align: center;
+}
+
+.input {
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid #1e90ff; /* Example border color change when focused */
+}
+
+.boxText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.boltText {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.redValidate {
+  color: red;
+}
+
 
 /* timer */
 

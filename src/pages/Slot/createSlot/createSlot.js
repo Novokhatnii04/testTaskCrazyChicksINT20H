@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
-import ModalWindow from "../modal";
+import Modal from "../../../Components/Modal/index";
+import AddBid from "../modalBid"
 import PriceDrop from "../PriceDrop";
 import Timer from "../timer";
 
@@ -17,9 +18,18 @@ function UISlot() {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const [validationErrors, setValidationErrors] = useState({
+    name: "",
+    startingBid: "",
+    auctionDuration: "",
+    description: "",
+  });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSlotData({ ...slotData, [name]: value });
+    // Reset validation error message
+    setValidationErrors({ ...validationErrors, [name]: "" });
   };
 
   const handlePhotoUpload = (e) => {
@@ -35,15 +45,30 @@ function UISlot() {
 
   const handlePlaceBidClick = () => {
     const { name, description, startingBid, auctionDuration, photos } = slotData;
-  
-    if (!name || !description || !startingBid || !auctionDuration || photos.length === 0) {
-      alert("Please fill in all fields.");
+    const errors = {};
+
+    // Validation
+    if (!name || name.length < 3 || name.length > 10) {
+      errors.name = "Name must be between 3 and 10 characters.";
+    }
+    if (!startingBid || isNaN(startingBid)) {
+      errors.startingBid = "Starting bid must be a number.";
+    }
+    if (!auctionDuration || isNaN(auctionDuration) || auctionDuration > 5) {
+      errors.auctionDuration = "Auction duration must be a number less than or equal to 5.";
+    }
+    if (!description || description.length > 360) {
+      errors.description = "Description must be less than 360 characters.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
       return;
     } else {
-      setIsModalVisible(true)
+      setIsModalVisible(!isModalVisible)
     }
   
-    // все в кучу, щоб відправии на бек
+    // все в кучу, щоб відправити на бек
     const formData = {
       name,
       description,
@@ -79,28 +104,31 @@ function UISlot() {
               name="name"
               value={slotData.name}
               onChange={handleInputChange}
-              className={styles.lotTitle}
+              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
               placeholder="Lot Title"
               required
             />
+            {validationErrors.name && <p className={styles.errorMessage}>{validationErrors.name}</p>}
             <input
               type="number"
               name="startingBid"
               value={slotData.startingBid}
               onChange={handleInputChange}
-              className={styles.lotTitle}
+              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
               placeholder="Starting Bid ($)"
               required
             />
+            {validationErrors.startingBid && <p className={styles.errorMessage}>{validationErrors.startingBid}</p>}
             <input
               type="number"
               name="auctionDuration"
               value={slotData.auctionDuration}
-              className={styles.lotTitle}
+              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
               onChange={handleInputChange}
               placeholder="Auction Duration (in days)"
               required
             />
+            {validationErrors.auctionDuration && <p className={styles.errorMessage}>{validationErrors.auctionDuration}</p>}
           </div>
           <textarea
             name="description"
@@ -110,6 +138,7 @@ function UISlot() {
             placeholder="Description (up to 360 characters)"
             required
           />
+          {validationErrors.description && <p className={styles.errorMessage}>{validationErrors.description}</p>}
           <div className={styles.photoWrapper}>
             <input
               type="file"
@@ -154,8 +183,10 @@ function UISlot() {
         </div>
       </div>
       {isModalVisible && (
-        <ModalWindow onClose={() => setIsModalVisible(false)} />
-      )}
+          <Modal close={handlePlaceBidClick}>
+            <AddBid  close={handlePlaceBidClick} state={1} />
+          </Modal>
+        )}
     </div>
   );
 }

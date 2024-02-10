@@ -78,7 +78,7 @@ const Slider = () => {
     <div
       className="newest-content-wrapper"
     >
-      {/* <div className="newest-title">Trending lots</div> */}
+      <div className="newest-title">Trending lots</div>
       <div className="slider-container">
         {!sliderSmall && (
           <>

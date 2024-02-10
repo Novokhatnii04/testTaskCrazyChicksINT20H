@@ -6,11 +6,13 @@ import Slot from "./pages/Slot/Slot";
 import Footer from "./pages/Footer/footer";
 import TopHeader from "./pages/Header/TopHeader";
 import UISlot from "./pages/Slot/createSlot/createSlot";
+import ScrollToTop from './Hooks/scroll/scroll';
 import "./App.css";
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <TopHeader />
       <Routes>
         <Route exact path="/" element={<MainPage />} />

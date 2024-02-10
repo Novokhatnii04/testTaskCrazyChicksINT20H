@@ -5,7 +5,8 @@ import sliderImg1 from "@images/footer.jpeg";
 import test from "@images/test.png";
 import test1 from "@images/test1.png";
 import PriceDrop from "./PriceDrop";
-import ModalWindow from "./modal";
+import Modal from "../../Components/Modal/index";
+import AddBid from "./modalBid"
 import Question from "../Question/question";
 import Timer from "./timer";
 import Chat from "../../Components/Chat/index";
@@ -14,7 +15,7 @@ function Slot() {
   let lastBid = 20;
   let timerCount = 3;
   let idLot = 1;
-  let startDate="2024-02-14T12:30:00";
+  let startDate = "2024-02-14T12:30:00";
 
   const questionInfo = [
     {
@@ -49,7 +50,7 @@ function Slot() {
 
   const handlePlaceBidClick = () => {
     if (selectedPrice) {
-      setIsModalVisible(true);
+      setIsModalVisible(!isModalVisible);
     }
   };
 
@@ -85,7 +86,7 @@ function Slot() {
               lalal lalal lalalalalla lalalala lalalal lalalal lalalala lalal
               lalalalalaBlalala lalala lalal lalal lalalalalla
             </div>
-            <Timer days={timerCount} startDate={startDate}/>
+            <Timer days={timerCount} startDate={startDate} />
             <div className={styles.bottomInfo}>
               <div className={styles.price}>
                 {lastBid} $<div className={styles.greyText}>Last bid</div>
@@ -101,7 +102,9 @@ function Slot() {
           <Question data={questionInfo} />
         </div>
         {isModalVisible && (
-          <ModalWindow onClose={() => setIsModalVisible(false)} />
+          <Modal close={handlePlaceBidClick}>
+            <AddBid  close={handlePlaceBidClick} state={0} />
+          </Modal>
         )}
       </div>
       <Chat />

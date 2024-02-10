@@ -1,5 +1,5 @@
 .root {
-   width: 100%;
+   width: 200%;
    position: relative;
    animation: run 10s linear infinite;
 }
@@ -24,7 +24,7 @@
    }
 
    100% {
-      transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
    }
 }
 
@@ -33,7 +33,7 @@
       font-size: 23px;
    }
 
-   .running-text_wrapper img {
+   /* .running-text_wrapper img {
       height: 80%;
-   }
+   } */
 }

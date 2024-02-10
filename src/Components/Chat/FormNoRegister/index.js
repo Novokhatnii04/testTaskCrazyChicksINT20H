@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./form.module.css";
 import Button from "../../Button";
 
-const FormNoRegister = ({ close }) => {
+const FormNoRegister = ({ close }) => { 
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -19,6 +19,10 @@ const FormNoRegister = ({ close }) => {
     value: "",
     isValid: true,
   });
+
+
+
+
 
   const handleSubmit = (e) => {
     const { value: valueName, isValid: isValidName } = name;

@@ -200,12 +200,15 @@
   .menu div {
     margin-bottom: 4px;
   }
+  .menu2 {
+    margin-left: 12px;
+  }
 
   .bottomInfo {
     height: 50%;
   }
 
   .payment {
-    height: 82px;
+    height: 77px;
   }
 }
