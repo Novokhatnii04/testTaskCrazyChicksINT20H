@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import Button from "../../Components/Button/index";
 import { notifySucess, notifyError } from "../../notify/index";
 
-const AddBid = ({ close, state, formData }) => {
+const AddBid = ({ close, stateModal, formData, selectedPrice, id }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -38,13 +38,47 @@ const AddBid = ({ close, state, formData }) => {
         timerCount: state.auctionDuration,
       };
       console.log(newState);
-      handleSendLot(newState);
+      if (stateModal === 1) {
+        handleSendLot(newState);
+      } else {
+        const newState = {
+          // name: valueName,
+          // surname: valueSurName,
+          // phone: valuePhone,
+          newPrice: selectedPrice,
+        };
+        changeSlot(newState);
+      }
       close();
       notifySucess("Thank you for your confirmation.");
       reset();
     } else {
       return;
     }
+  };
+
+  const changeSlot = (data) => {
+    const url = `http://lequiledev.zapto.org:8001/auction/UpdatePrice/${id}`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const handleSendLot = (data) => {
@@ -116,7 +150,7 @@ const AddBid = ({ close, state, formData }) => {
   return (
     <div className={styles.boxForm}>
       <div className={styles.boxText}>
-        {state === 1 ? (
+        {stateModal === 1 ? (
           <>
             <p className={styles.boltText}>Thank you for your lot.</p>
             <p className={styles.otherText}>
