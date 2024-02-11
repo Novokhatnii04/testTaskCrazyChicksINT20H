@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "./form.module.css";
 import Button from "../../Button";
+import { notifySucess, notifyError } from "../../../notify/index";
 
-const FormNoRegister = ({ close }) => { 
+const FormNoRegister = ({ close }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -20,10 +21,6 @@ const FormNoRegister = ({ close }) => {
     isValid: true,
   });
 
-
-
-
-
   const handleSubmit = (e) => {
     const { value: valueName, isValid: isValidName } = name;
     const { value: valueSurName, isValid: isValidSurName } = surname;
@@ -39,10 +36,12 @@ const FormNoRegister = ({ close }) => {
       };
       console.log(state);
       close();
-      alert("SUCCESS");
+      notifySucess(
+        "Your comment has been added successfully! After it is processed by a moderator, you will see it with others together."
+      );
       reset();
     } else {
-      return;
+      notifyError("Fill in all the fields carefully!");
     }
   };
 
