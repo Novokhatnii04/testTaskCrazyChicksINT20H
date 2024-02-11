@@ -1,8 +1,8 @@
-import React from "react";
-import FilterIcon from "@images/filterIcon.svg";
+import React, { useState } from "react";
+// import FilterIcon from "@images/filterIcon.svg";
 import CardsGrid from "./cardsGrid";
 
-const _cardsData = [
+let _cardsData = [
   {
     id:1,
     title: "Popla",
@@ -85,7 +85,32 @@ const _cardsData = [
   },
 ];
 
-const cardsMenu = () => {
+const CardsMenu = () => {
+  const [selectedFilter, setSelectedFilter] = useState("Filter");
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setSelectedFilter(value);
+    handleSortedArray(value);
+  };
+
+  const handleSortedArray = (value) => {
+    let firstWord = value.split("_")[0];
+    let secondWord = value.split("_")[1];
+    if (firstWord === "date") {
+      _cardsData.sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      });
+    } else if (secondWord === "up") {
+      _cardsData.sort((a, b) => {
+        return a[firstWord] - b[firstWord];
+      });
+    } else if (secondWord === "down") {
+      _cardsData.sort((a, b) => {
+        return b[firstWord] - a[firstWord];
+      });
+    }
+  };
   // const sendJsonData = async () => {
   //   try {
   //     let response = await fetch("http://localhost:9090/api/v1/auth/register", {
@@ -104,10 +129,25 @@ const cardsMenu = () => {
         <div>
           <span>Results : {_cardsData.length}</span>
           <div>
-            <button className="cards_filter__button">
+            <label className="cards_filter__label">
+              <select
+                className="selected_item"
+                value={selectedFilter}
+                // defaultValue={"Filter"}
+                onChange={handleChange}
+              >
+                <option value="Filter" disabled hidden>
+                  Filter &#9660;
+                </option>
+                <option value="price_up">by price &#9660;</option>
+                <option value="price_down">by price &#9650;</option>
+                <option value="date">by date &#9650;</option>
+              </select>
+            </label>
+
+            {/* <button className="cards_filter__button">
               <span>Filter</span>
-              <img src={FilterIcon} />
-            </button>
+            </button> */}
           </div>
         </div>
         <span></span>
@@ -117,4 +157,4 @@ const cardsMenu = () => {
   );
 };
 
-export default cardsMenu;
+export default CardsMenu;
