@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import Modal from "../../../Components/Modal/index";
-import AddBid from "../modalBid"
+import AddBid from "../modalBid";
 import PriceDrop from "../PriceDrop";
 import Timer from "../timer";
 
@@ -14,7 +14,7 @@ function UISlot() {
     startingBid: "",
     auctionDuration: "",
     photos: [],
-});
+  });
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -32,24 +32,25 @@ function UISlot() {
     setValidationErrors({ ...validationErrors, [name]: "" });
   };
 
-  const handlePhotoUpload = (e) => {
-    const files = e.target.files;
-    const maxPhotos = 4;
-    if (files.length > maxPhotos) {
-      alert(`You can upload a maximum of ${maxPhotos} photos.`);
-      return;
-    }
-    const urls = Array.from(files).map((file) => URL.createObjectURL(file));
-    setSlotData({ ...slotData, photos: urls });
-  };
+  // const handlePhotoUpload = (e) => {
+  //   const files = e.target.files;
+  //   const maxPhotos = 4;
+  //   if (files.length > maxPhotos) {
+  //     alert(`You can upload a maximum of ${maxPhotos} photos.`);
+  //     return;
+  //   }
+  //   const urls = Array.from(files).map((file) => URL.createObjectURL(file));
+  //   setSlotData({ ...slotData, photos: urls });
+  // };
 
   const handlePlaceBidClick = () => {
-    const { name, description, startingBid, auctionDuration, photos } = slotData;
+    const { name, description, startingBid, auctionDuration, photos, url } =
+      slotData;
     const errors = {};
 
     // Validation
-    if (!name || name.length < 3 || name.length > 10) {
-      errors.name = "Name must be between 3 and 10 characters.";
+    if (!name || name.length < 3 || name.length > 20) {
+      errors.name = "Name must be between 3 and 20 characters.";
     }
     if (!startingBid || isNaN(startingBid)) {
       errors.startingBid = "Starting bid must be a number.";
@@ -65,9 +66,9 @@ function UISlot() {
       setValidationErrors(errors);
       return;
     } else {
-      setIsModalVisible(!isModalVisible)
+      setIsModalVisible(!isModalVisible);
     }
-  
+
     // все в кучу, щоб відправити на бек
     const formData = {
       name,
@@ -75,8 +76,8 @@ function UISlot() {
       startingBid,
       auctionDuration,
       photos,
+      url
     };
-
   };
 
   const smallSliderPhotos = slotData.photos.map((src, index) => (
@@ -104,31 +105,47 @@ function UISlot() {
               name="name"
               value={slotData.name}
               onChange={handleInputChange}
-              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
+              className={`${styles.lotTitle} ${
+                validationErrors.name && styles.errorInput
+              }`}
               placeholder="Lot Title"
               required
             />
-            {validationErrors.name && <p className={styles.errorMessage}>{validationErrors.name}</p>}
+            {validationErrors.name && (
+              <p className={styles.errorMessage}>{validationErrors.name}</p>
+            )}
             <input
               type="number"
               name="startingBid"
               value={slotData.startingBid}
               onChange={handleInputChange}
-              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
+              className={`${styles.lotTitle} ${
+                validationErrors.name && styles.errorInput
+              }`}
               placeholder="Starting Bid ($)"
               required
             />
-            {validationErrors.startingBid && <p className={styles.errorMessage}>{validationErrors.startingBid}</p>}
+            {validationErrors.startingBid && (
+              <p className={styles.errorMessage}>
+                {validationErrors.startingBid}
+              </p>
+            )}
             <input
               type="number"
               name="auctionDuration"
               value={slotData.auctionDuration}
-              className={`${styles.lotTitle} ${validationErrors.name && styles.errorInput}`}
+              className={`${styles.lotTitle} ${
+                validationErrors.name && styles.errorInput
+              }`}
               onChange={handleInputChange}
               placeholder="Auction Duration (in days)"
               required
             />
-            {validationErrors.auctionDuration && <p className={styles.errorMessage}>{validationErrors.auctionDuration}</p>}
+            {validationErrors.auctionDuration && (
+              <p className={styles.errorMessage}>
+                {validationErrors.auctionDuration}
+              </p>
+            )}
           </div>
           <textarea
             name="description"
@@ -138,10 +155,14 @@ function UISlot() {
             placeholder="Description (up to 360 characters)"
             required
           />
-          {validationErrors.description && <p className={styles.errorMessage}>{validationErrors.description}</p>}
+          {validationErrors.description && (
+            <p className={styles.errorMessage}>
+              {validationErrors.description}
+            </p>
+          )}
           <div className={styles.photoWrapper}>
-            <input
-              type="file"
+            {/* <input
+              type="text"
               accept="image/*"
               multiple
               onChange={handlePhotoUpload}
@@ -156,7 +177,15 @@ function UISlot() {
               ) : (
                 <div className={styles.sliderPhotoPlaceholder}>No Photo</div>
               )}
-            </div>
+            </div> */}
+            <input
+              value={slotData.url}
+              type="text"
+              multiple
+              required
+              placeholder="URL your image"
+              style={{width: '100%' , height: '25px', border: 'none'}}
+            />
             <div className={styles.smallSliderPhotosWrapper}>
               {smallSliderPhotos}
             </div>
@@ -168,25 +197,25 @@ function UISlot() {
         <div className={styles.displayBlock}>
           <div className={styles.name}>{slotData.name}</div>
           <div className={styles.descrText}>{slotData.description}</div>
-              {slotData.auctionDuration && (
-                <Timer days={slotData.auctionDuration}  startDate={startDate}/>
-              )}
-                {slotData.startingBid && (
-              <div className={styles.bottomInfo}>
-                  <div className={styles.price}>
-                    {slotData.startingBid} $
-                    <div className={styles.greyText}>Last bid</div>
-                  </div>
-                    <PriceDrop lastBid={slotData.startingBid} />
+          {slotData.auctionDuration && (
+            <Timer days={slotData.auctionDuration} startDate={startDate} />
+          )}
+          {slotData.startingBid && (
+            <div className={styles.bottomInfo}>
+              <div className={styles.price}>
+                {slotData.startingBid} $
+                <div className={styles.greyText}>Last bid</div>
               </div>
-                )}
+              <PriceDrop lastBid={slotData.startingBid} />
+            </div>
+          )}
         </div>
       </div>
       {isModalVisible && (
-          <Modal close={handlePlaceBidClick}>
-           <AddBid close={handlePlaceBidClick} state={1} formData={slotData} />
-          </Modal>
-        )}
+        <Modal close={handlePlaceBidClick}>
+          <AddBid close={handlePlaceBidClick} state={1} formData={slotData} />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -34,7 +34,7 @@ const AddBid = ({ close, state, formData }) => {
         name: state.name,
         description: state.description,
         price: state.startingBid,
-        img: state.name,
+        img: state.url,
         timerCount: state.auctionDuration,
       };
       console.log(newState);
