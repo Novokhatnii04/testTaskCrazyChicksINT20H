@@ -32,7 +32,7 @@ function Slot() {
           setIsLoaded(true);
           setItems(result);
           let findedObject = result.find((el) => el.id === currentId);
-          setCurrentItem(findedObject)
+          setCurrentItem(findedObject);
         },
         (error) => {
           setIsLoaded(true);
@@ -41,14 +41,14 @@ function Slot() {
       );
   }, []);
 
+  const selectedCard = useSelector((state) => state.selectedCard);
 
-  // const selectedCard = useSelector((state) => state.selectedCard);
-  let lastBid = currentItem.price;
-  // let timerCount = selectedCard.timerCount;
-  let idLot = currentId;
-  // let startDate = selectedCard.date;
-  let lotName = currentItem.name;
-  let description = currentItem.description;
+    let lastBid = selectedCard.price;
+    let timerCount = selectedCard.timerCount;
+    let idLot = currentId;
+    let startDate = selectedCard.date;
+    let lotName = selectedCard.name;
+    let description = selectedCard.description;
 
   const questionInfo = [
     {
@@ -98,7 +98,7 @@ function Slot() {
 
   return (
     <React.Fragment>
-      {items ? (
+      {currentItem ? (
         <div className={`${styles.slotCard} animated`}>
           <div className={styles.title}>Lot # {idLot}</div>
           <div className={styles.slotSection}>
