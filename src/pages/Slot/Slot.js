@@ -83,8 +83,6 @@ function Slot() {
     if (selectedPrice) {
       setIsModalVisible(!isModalVisible);
     }
-
-    console.log(selectedCard);
   };
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
