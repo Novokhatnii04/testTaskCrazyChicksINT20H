@@ -10,32 +10,24 @@ const Slider = () => {
   const [sliderSmall, setsliderSmall] = useState(false);
   const [sliderMeduim, setsliderMeduim] = useState(false);
 
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
-  let data = [
-    {
-      id:1,
-      title: "Popla",
-      timerCount: 2,
-      price: 234,
-      desc: "sdsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdada",
-      date: "2024-02-14T12:30:00",
-    },
-    {
-      id:2,
-      title: "Popla",
-      timerCount: 3,
-      price: 1234,
-      desc: "sdsdsdsdada",
-      date: "2024-02-14T12:30:00",
-    },
-    {
-      id:3,
-      title: "Popla",
-      timerCount: 2,
-      price: 3234,
-      desc: "sdsdsdsdada",
-      date: "2024-02-14T12:30:00",
-    }] 
+  useEffect(() => {
+    fetch("http://lequiledev.zapto.org:8001/auction")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,15 +74,14 @@ const Slider = () => {
 
   const renderVisibleCards = () => {
     const visibleCards = [];
-  
-    data.forEach((el, index) => {
-      const isActive = index === (active - 1);
-      visibleCards.push(<Card key={el.id} isActive={isActive} data={el}/>);
+
+    items.forEach((el, index) => {
+      const isActive = index === active - 1;
+      visibleCards.push(<Card key={el.id} isActive={isActive} data={el} />);
     });
-  
+
     return visibleCards;
   };
-  
 
   let cardWidth;
   if (sliderSmall) {
@@ -102,10 +93,8 @@ const Slider = () => {
   const transformValue = -currentIndex * cardWidth + "px";
 
   return (
-    <div
-      className="newest-content-wrapper"
-    >
-      <div className="newest-title">Trending lots</div>
+    <div className="newest-content-wrapper">
+      <div className="newest-title">Most expensive lots</div>
       <div className="slider-container">
         {!sliderSmall && (
           <>

@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/auction" element={<AuctionCards />} />
           <Route path="/createslot" element={<UISlot />} />
           <Route path="/slot/:id" element={<Slot />} />
+          <Route path="/question" element={<MainPage />} /> 
         </Routes>
         <Footer />
       </Router>

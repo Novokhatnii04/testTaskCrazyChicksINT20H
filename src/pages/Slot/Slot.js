@@ -92,10 +92,13 @@ function Slot() {
             <Timer days={timerCount} startDate={startDate} />
             <div className={styles.bottomInfo}>
               <div className={styles.price}>
-                {lastBid} $<div className={styles.greyText}>Last bid</div>
+                {lastBid} $<div className={styles.greyText} onClick={handlePlaceBidClick}>Last bid</div>
               </div>
               <PriceDrop lastBid={lastBid} onPriceChange={handlePriceChange} />
             </div>
+                <div className={styles.greyText}>Bid history<br/>
+                Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid}
+                </div>
             <div className={styles.button} onClick={handlePlaceBidClick}>
               Place Bid
             </div>
