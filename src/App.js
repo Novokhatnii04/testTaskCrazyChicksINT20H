@@ -7,21 +7,25 @@ import Footer from "./pages/Footer/footer";
 import TopHeader from "./pages/Header/TopHeader";
 import UISlot from "./pages/Slot/createSlot/createSlot";
 import ScrollToTop from './Hooks/scroll/scroll';
+import { Provider } from 'react-redux'; // Імпорт Provider з react-redux
+import store from './Components/Store/store'; // Імпорт вашого Redux store
 import "./App.css";
 
 const App = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <TopHeader />
-      <Routes>
-        <Route exact path="/" element={<MainPage />} />
-        <Route path="/slot" element={<Slot />} />
-        <Route path="/auction" element={<AuctionCards />} />
-        <Route path="/createslot" element={<UISlot />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <TopHeader />
+        <Routes>
+          <Route exact path="/" element={<MainPage />} />
+          <Route path="/auction" element={<AuctionCards />} />
+          <Route path="/createslot" element={<UISlot />} />
+          <Route path="/slot/:id" element={<Slot />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   );
 };
 

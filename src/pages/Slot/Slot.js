@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector } from 'react-redux'; // Імпортуйте useSelector
 import styles from "./styles.module.css";
 import sliderImg from "@images/flag.png";
 import sliderImg1 from "@images/footer.jpeg";
@@ -6,16 +8,20 @@ import test from "@images/test.png";
 import test1 from "@images/test1.png";
 import PriceDrop from "./PriceDrop";
 import Modal from "../../Components/Modal/index";
-import AddBid from "./modalBid"
+import AddBid from "./modalBid";
 import Question from "../Question/question";
 import Timer from "./timer";
 import Chat from "../../Components/Chat/index";
 
 function Slot() {
-  let lastBid = 20;
-  let timerCount = 3;
-  let idLot = 1;
-  let startDate = "2024-02-14T12:30:00";
+  const { id } = useParams();
+  const selectedCard = useSelector(state => state.selectedCard); 
+  let lastBid = selectedCard.price;
+  let timerCount = selectedCard.timerCount;
+  let idLot = id;
+  let startDate = selectedCard.date;
+  let lotName = selectedCard.title;
+  let description = selectedCard.desc;
 
   const questionInfo = [
     {
@@ -52,6 +58,8 @@ function Slot() {
     if (selectedPrice) {
       setIsModalVisible(!isModalVisible);
     }
+
+    console.log(selectedCard)
   };
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
@@ -78,13 +86,8 @@ function Slot() {
             </div>
           </div>
           <div className={styles.infoBlock}>
-            <div className={styles.name}>Name</div>
-            <div className={styles.descrText}>
-              Blalala lalala lalal lalal lalalalalla lalalala lalalal lalalal
-              lalalala lalal lalalalalaBlalala lalala lalal lalal lalalalalla
-              lalalala lalalal lalalal lalalala lalal lalalalala Blalala lalala
-              lalal lalal lalalalalla lalalala lalalal lalalal lalalala lalal
-              lalalalalaBlalala lalala lalal lalal lalalalalla
+            <div className={styles.name}>{lotName}</div>
+            <div className={styles.descrText}>{description}
             </div>
             <Timer days={timerCount} startDate={startDate} />
             <div className={styles.bottomInfo}>
@@ -103,7 +106,7 @@ function Slot() {
         </div>
         {isModalVisible && (
           <Modal close={handlePlaceBidClick}>
-            <AddBid  close={handlePlaceBidClick} state={0} />
+            <AddBid close={handlePlaceBidClick} state={0} />
           </Modal>
         )}
       </div>

@@ -10,6 +10,33 @@ const Slider = () => {
   const [sliderSmall, setsliderSmall] = useState(false);
   const [sliderMeduim, setsliderMeduim] = useState(false);
 
+
+  let data = [
+    {
+      id:1,
+      title: "Popla",
+      timerCount: 2,
+      price: 234,
+      desc: "sdsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdada",
+      date: "2024-02-14T12:30:00",
+    },
+    {
+      id:2,
+      title: "Popla",
+      timerCount: 3,
+      price: 1234,
+      desc: "sdsdsdsdada",
+      date: "2024-02-14T12:30:00",
+    },
+    {
+      id:3,
+      title: "Popla",
+      timerCount: 2,
+      price: 3234,
+      desc: "sdsdsdsdada",
+      date: "2024-02-14T12:30:00",
+    }] 
+
   useEffect(() => {
     const handleResize = () => {
       const isSmallScreen = window.matchMedia("(max-width: 937px)").matches;
@@ -55,15 +82,15 @@ const Slider = () => {
 
   const renderVisibleCards = () => {
     const visibleCards = [];
-    for (let i = 1; i <= 3; i++) {
-      if (i === active) {
-        visibleCards.push(<Card key={i} isActive={true} />);
-      } else {
-        visibleCards.push(<Card key={i} isActive={false} />);
-      }
-    }
+  
+    data.forEach((el, index) => {
+      const isActive = index === (active - 1);
+      visibleCards.push(<Card key={el.id} isActive={isActive} data={el}/>);
+    });
+  
     return visibleCards;
   };
+  
 
   let cardWidth;
   if (sliderSmall) {
