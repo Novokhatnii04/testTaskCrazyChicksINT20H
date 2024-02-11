@@ -76,7 +76,7 @@ function UISlot() {
       startingBid,
       auctionDuration,
       photos,
-      url
+      url,
     };
   };
 
@@ -184,7 +184,7 @@ function UISlot() {
               multiple
               required
               placeholder="URL your image"
-              style={{width: '100%' , height: '25px', border: 'none'}}
+              style={{ width: "100%", height: "25px", border: "none" }}
             />
             <div className={styles.smallSliderPhotosWrapper}>
               {smallSliderPhotos}
@@ -213,7 +213,11 @@ function UISlot() {
       </div>
       {isModalVisible && (
         <Modal close={handlePlaceBidClick}>
-          <AddBid close={handlePlaceBidClick} state={1} formData={slotData} />
+          <AddBid
+            close={handlePlaceBidClick}
+            stateModal={1}
+            formData={slotData}
+          />
         </Modal>
       )}
     </div>

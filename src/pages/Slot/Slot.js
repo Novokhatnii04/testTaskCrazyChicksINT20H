@@ -26,11 +26,13 @@ function Slot() {
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(`items ${result}`);
           setIsLoaded(true);
           setItems(result);
           console.log(result);
         },
         (error) => {
+          console.log(error);
           setIsLoaded(true);
           setError(error);
         }
@@ -83,6 +85,8 @@ function Slot() {
       setIsModalVisible(!isModalVisible);
     }
   };
+
+  console.log(`selectedPrice ${selectedPrice}`);
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
     <div
@@ -142,7 +146,12 @@ function Slot() {
           </div>
           {isModalVisible && (
             <Modal close={handlePlaceBidClick}>
-              <AddBid close={handlePlaceBidClick} state={0} />
+              <AddBid
+                close={handlePlaceBidClick}
+                stateModal={0}
+                selectedPrice={selectedPrice}
+                id={id}
+              />
             </Modal>
           )}
         </div>
