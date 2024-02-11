@@ -9,6 +9,14 @@ function SlotCard({ isActive, data }) {
   const dispatch = useDispatch();
   const { id, price, name, description } = data;
 
+  const validateName = (name) => {
+    if (name.length > 25) {
+      return name.slice(0, 25) + "...";
+    } else {
+      return name;
+    }
+  };
+
   const handleDetailsClick = () => {
     dispatch(selectCard(data));
   };
@@ -33,10 +41,11 @@ function SlotCard({ isActive, data }) {
         className={photoClasses}
         style={{ backgroundImage: `url(${sliderImg})` }}
       ></div>
+      {/* <img src=`${url(sliderImg)}` /> */}
       <div className="newest-info-block">
         <div className="newest-text-block">
           <div className="newest-grey-text">{truncatedDesc}</div>
-          <div className="newest-black-text">{name}</div>
+          <div className="newest-black-text">{validateName(name)}</div>
         </div>
         <div className="newest-bottom-info">
           <div className="newest-price">
