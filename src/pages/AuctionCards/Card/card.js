@@ -2,9 +2,8 @@ import React from "react";
 import sliderImg from "@images/flag.png";
 import styles from "./card.module.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { selectCard } from '../../../Components/Store/store';
-
+import { useDispatch } from "react-redux";
+import { selectCard } from "../../../Components/Store/store";
 
 function SlotCard({ data, isActive }) {
   const { id, price, title, desc } = data;
@@ -17,12 +16,10 @@ function SlotCard({ data, isActive }) {
     ? `${styles["slider-photo"]} ${styles.active}`
     : `${styles["slider-photo"]}`;
 
-    const handleDetailsClick = () => {
-      // console.log("sfsfsfsf", data);
-      dispatch(selectCard(data));
-    };
-    
-
+  const handleDetailsClick = () => {
+    // console.log("sfsfsfsf", data);
+    dispatch(selectCard(data));
+  };
 
   return (
     <div className={cardClasses}>
@@ -32,7 +29,9 @@ function SlotCard({ data, isActive }) {
       ></div>
       <div className={styles["newest-info-block"]}>
         <div className={styles["newest-text-block"]}>
-          <div className={styles["newest-grey-text"]}>{desc}</div>
+          <div className={styles["newest-grey-text"]}>
+            {desc.length > 20 ? `${desc.substring(0, 20)}...` : desc}
+          </div>
           <div className={styles["newest-black-text"]}>{title}</div>
         </div>
         <div className={styles["newest-bottom-info"]}>

@@ -16,7 +16,7 @@ let _cardsData = [
     title: "Popla",
     timerCount: 3,
     price: 1234,
-    desc: "sdsdsdsdada",
+    desc: "sdsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdadadsdsdsdada",
     date: "2024-02-14T12:30:00",
   },
   {
