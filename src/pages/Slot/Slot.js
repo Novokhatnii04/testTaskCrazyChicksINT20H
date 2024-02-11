@@ -19,19 +19,20 @@ function Slot() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState(null);
   const [currentItem, setCurrentItem] = useState(null);
-
-  const { id: idCurrentItem } = useParams()
+  const [currentId, setCurrentId] = useState(1);
+  const { id: currentJsonId } = useParams();
 
   useEffect(() => {
+    setCurrentId(currentJsonId);
+
     fetch("http://lequiledev.zapto.org:8001/auction")
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
           setItems(result);
-          result.find((el) => el.id === idCurrentItem);
-          console.log('dwdwd')
-          console.log(result);
+          let findedObject = result.find((el) => el.id === currentId);
+          setCurrentItem(findedObject)
         },
         (error) => {
           setIsLoaded(true);
@@ -40,13 +41,14 @@ function Slot() {
       );
   }, []);
 
-  const selectedCard = useSelector((state) => state.selectedCard);
-  let lastBid = selectedCard.price;
-  let timerCount = selectedCard.timerCount;
-  let idLot = idCurrentItem;
-  let startDate = selectedCard.date;
-  let lotName = selectedCard.name;
-  let description = selectedCard.description;
+
+  // const selectedCard = useSelector((state) => state.selectedCard);
+  let lastBid = currentItem.price;
+  // let timerCount = selectedCard.timerCount;
+  let idLot = currentId;
+  // let startDate = selectedCard.date;
+  let lotName = currentItem.name;
+  let description = currentItem.description;
 
   const questionInfo = [
     {
@@ -83,8 +85,6 @@ function Slot() {
     if (selectedPrice) {
       setIsModalVisible(!isModalVisible);
     }
-
-    console.log(selectedCard);
   };
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
@@ -114,7 +114,7 @@ function Slot() {
             <div className={styles.infoBlock}>
               <div className={styles.name}>{lotName}</div>
               <div className={styles.descrText}>{description}</div>
-              <Timer days={timerCount} startDate={startDate} />
+              {/* <Timer days={timerCount} startDate={startDate} /> */}
               <div className={styles.bottomInfo}>
                 <div className={styles.price}>
                   {lastBid} $
@@ -133,7 +133,7 @@ function Slot() {
               <div className={styles.greyText}>
                 Bid history
                 <br />
-                Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid}
+                {/* Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid} */}
               </div>
               <div className={styles.button} onClick={handlePlaceBidClick}>
                 Place Bid
