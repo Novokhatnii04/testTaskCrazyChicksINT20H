@@ -170,16 +170,9 @@
   transform: rotate(180deg);
 }
 
-/* 
-.next-button:hover .newest-arrow-right,
-.prev-button:hover .newest-arrow-left {
-  transition: 1s all ease-in-out;
-  transform: scale(2);
-} */
 
 .next-button:hover,
 .prev-button:hover {
-  /* transition: 0.5s all ease; */
   box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
   -webkit-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
   -moz-box-shadow: 0 0 20px 3px rgba(65, 65, 65, 0.69);
