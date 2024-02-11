@@ -4,6 +4,8 @@ import Button from "../../Button";
 import { notifySucess, notifyError } from "../../../notify/index";
 
 const FormNoRegister = ({ close }) => {
+  const url = "http://lequiledev.zapto.org:8001/auction";
+
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -62,6 +64,31 @@ const FormNoRegister = ({ close }) => {
       value: "",
       isValid: true,
     });
+  };
+
+  const sentMessage = () => {
+    const data = { username: "example", password: "12345" };
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // встановлюємо тип контенту на JSON
+        // додайте інші заголовки, якщо потрібно
+      },
+      body: JSON.stringify(data), // перетворюємо об'єкт даних в JSON-рядок
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // повертаємо обіцянку, яка вирішується JSON з відповіддю сервера
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const handleChangeValue = (setName, target) => {
