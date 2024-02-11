@@ -64,7 +64,7 @@ import FormNoRegister from "./FormNoRegister";
 //   },
 // ];
 
-const ChatComponent = ({ newArray, id }) => {
+const ChatComponent = ({ newArray = [], id }) => {
   const [showModal, setShowModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -85,10 +85,10 @@ const ChatComponent = ({ newArray, id }) => {
   indexOfLastItem = currentPage * itemsPerPage;
   indexOfFirstItem = indexOfLastItem - itemsPerPage;
   currentItems =
-    newArray.length > 0
+    newArray?.length > 0
       ? newArray?.slice(indexOfFirstItem, indexOfLastItem)
       : [];
-  totalPages = Math.ceil(newArray.length / 5);
+  totalPages = Math.ceil(newArray?.length / 5);
   showNextButton = currentPage < totalPages;
 
   const handleNextPage = () => {
@@ -107,7 +107,7 @@ const ChatComponent = ({ newArray, id }) => {
       <Button text="Leave a review" handleClick={toggleModal} />
 
       <ul className={styles.boxList}>
-        {newArray &&
+        {newArray?.length > 0 &&
           currentItems.map(({ nameOfCommentator, time, text, id }, index) => (
             <li key={id} className={styles.item}>
               <div className={styles.infoBoxUser}>
@@ -138,7 +138,7 @@ const ChatComponent = ({ newArray, id }) => {
             &#8592;
           </button>
         )}
-        {newArray.length > 0 && (
+        {newArray?.length > 0 && (
           <p className={styles.currentPage}>{currentPage}</p>
         )}
 
