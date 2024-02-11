@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import Button from "../../Components/Button/index";
 import { notifySucess, notifyError } from "../../notify/index";
 
-const AddBid = ({ close, state }) => {
+const AddBid = ({ close, state, formData }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -27,6 +27,7 @@ const AddBid = ({ close, state }) => {
         name: valueName,
         surname: valueSurName,
         phone: valuePhone,
+        ...formData, // Додано дані з formData
       };
       console.log(state);
       close();
@@ -36,7 +37,6 @@ const AddBid = ({ close, state }) => {
       return;
     }
   };
-
   const reset = () => {
     setName({
       value: "",
@@ -102,7 +102,7 @@ const AddBid = ({ close, state }) => {
         )}
       </div>
 
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={(e) => handleSubmit(e, formData)} className={styles.form}>
         <label className={styles.label}>
           <p>
             Name{!name.isValid && <span className={styles.redValidate}>*</span>}

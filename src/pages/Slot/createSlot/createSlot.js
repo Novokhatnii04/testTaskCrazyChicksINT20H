@@ -9,12 +9,12 @@ function UISlot() {
   let startDate = new Date();
 
   const [slotData, setSlotData] = useState({
-    name: "",
+    slotname: "", // Змінено name на slotname
     description: "",
     startingBid: "",
     auctionDuration: "",
     photos: [],
-  });
+});
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -184,7 +184,7 @@ function UISlot() {
       </div>
       {isModalVisible && (
           <Modal close={handlePlaceBidClick}>
-            <AddBid  close={handlePlaceBidClick} state={1} />
+           <AddBid close={handlePlaceBidClick} state={1} formData={slotData} />
           </Modal>
         )}
     </div>
