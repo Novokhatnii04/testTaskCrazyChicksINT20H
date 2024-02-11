@@ -35,17 +35,17 @@ function Slot() {
           setError(error);
         }
       );
-    fetch("http://lequiledev.zapto.org:8001/auction/newComment")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setNewArray(result);
-          console.log(result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    // fetch(`http://lequiledev.zapto.org:8001/auction/getcomments/${id}`)
+    //   .then((res) => res.json())
+    //   .then(
+    //     (result) => {
+    //       console.log(result);
+    //       setNewArray(result);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
   }, []);
 
   // console.log(window.location.href);
@@ -160,7 +160,8 @@ function Slot() {
       ) : (
         <Loader />
       )}
-      <Chat newArray={newArray} id={id} />
+
+      {/* <Chat newArray={items.comments} id={id} /> */}
     </React.Fragment>
   );
 }

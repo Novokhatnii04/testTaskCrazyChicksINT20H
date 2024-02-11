@@ -77,6 +77,7 @@ const FormNoRegister = ({ close, id }) => {
       body: JSON.stringify(data), // перетворюємо об'єкт даних в JSON-рядок
     })
       .then((response) => {
+        console.log(response);
         if (!response) {
           throw new Error("Network response was not ok");
         }

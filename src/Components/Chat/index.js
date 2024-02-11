@@ -109,13 +109,13 @@ const ChatComponent = ({ newArray, id }) => {
       <ul className={styles.boxList}>
         {newArray &&
           currentItems.map(
-            ({ name, date, phone, desc, surname, id }, index) => (
+            ({ nameOfCommentator, time, phone, desc, id }, index) => (
               <li key={id} className={styles.item}>
                 <div className={styles.infoBoxUser}>
-                  <UserImg name={name} surname={surname} />
+                  <UserImg name={nameOfCommentator} />
                   <div className={styles.boxName}>
-                    <p className={styles.name}>{name}</p>
-                    <p className={styles.date}>{date}</p>
+                    <p className={styles.name}>{nameOfCommentator}</p>
+                    <p className={styles.date}>{time}</p>
                   </div>
                 </div>
 
