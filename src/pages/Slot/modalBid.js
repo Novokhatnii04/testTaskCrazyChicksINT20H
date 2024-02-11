@@ -36,8 +36,8 @@ const AddBid = ({ close, state, formData }) => {
         price: state.startingBid,
         img: state.name,
       };
-      console.log(state);
-      handleSendLot(state);
+      console.log(newState);
+      handleSendLot(newState);
       close();
       notifySucess("Thank you for your confirmation.");
       reset();
