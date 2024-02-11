@@ -30,6 +30,7 @@ const AddBid = ({ close, state, formData }) => {
         ...formData, // Додано дані з formData
       };
       console.log(state);
+      handleSendLot(state);
       close();
       notifySucess("Thank you for your confirmation.");
       reset();
@@ -37,6 +38,31 @@ const AddBid = ({ close, state, formData }) => {
       return;
     }
   };
+
+  const handleSendLot = (data) => {
+    const url = `http://lequiledev.zapto.org:8001/auction`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // встановлюємо тип контенту на JSON
+        // додайте інші заголовки, якщо потрібно
+      },
+      body: JSON.stringify(data), // перетворюємо об'єкт даних в JSON-рядок
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // повертаємо обіцянку, яка вирішується JSON з відповіддю сервера
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   const reset = () => {
     setName({
       value: "",
@@ -51,7 +77,6 @@ const AddBid = ({ close, state, formData }) => {
       isValid: true,
     });
   };
-
 
   const handleChangeValue = (setName, target) => {
     const { value, name } = target;

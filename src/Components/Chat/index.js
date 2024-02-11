@@ -64,35 +64,32 @@ import FormNoRegister from "./FormNoRegister";
 //   },
 // ];
 
-const ChatComponent = () => {
+const ChatComponent = ({ newArray, id }) => {
   const [showModal, setShowModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [newArray, setNewArray] = useState([]);
+
   const itemsPerPage = 5;
 
-  useEffect(() => {
-    fetch("http://lequiledev.zapto.org:8001/chat")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setNewArray(result);
-          console.log(result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, []);
+  useEffect(() => {}, []);
+
+  let indexOfLastItem;
+  let indexOfFirstItem;
+  let currentItems;
+  let totalPages;
+  let showNextButton;
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = newArray.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(newArray.length / 5);
-  const showNextButton = currentPage < totalPages;
+  indexOfLastItem = currentPage * itemsPerPage;
+  indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  currentItems =
+    newArray.length > 0
+      ? newArray?.slice(indexOfFirstItem, indexOfLastItem)
+      : [];
+  totalPages = Math.ceil(newArray.length / 5);
+  showNextButton = currentPage < totalPages;
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -141,7 +138,10 @@ const ChatComponent = () => {
             &#8592;
           </button>
         )}
-        <p className={styles.currentPage}>{currentPage}</p>
+        {newArray.length > 0 && (
+          <p className={styles.currentPage}>{currentPage}</p>
+        )}
+
         {showNextButton && (
           <button
             className={[
@@ -156,7 +156,7 @@ const ChatComponent = () => {
       </div>
       {showModal && (
         <Modal close={toggleModal}>
-          <FormNoRegister close={toggleModal} />
+          <FormNoRegister close={toggleModal} id={id} />
         </Modal>
       )}
     </div>
