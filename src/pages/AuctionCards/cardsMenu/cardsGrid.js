@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Card from "../Card/card";
+import Card from '../../Slider/card'
 
 const CardsGrid = ({ data  }) => {
   return (

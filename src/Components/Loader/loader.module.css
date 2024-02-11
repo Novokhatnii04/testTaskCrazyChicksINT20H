@@ -5,6 +5,7 @@
     --clr: #111;
     width: 100px;
     height: 100px;
+    z-index: 9;
    }
    
    .spinner::after,.spinner::before {
