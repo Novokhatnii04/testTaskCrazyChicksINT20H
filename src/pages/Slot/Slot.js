@@ -18,7 +18,7 @@ function Slot() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [newArray, setNewArray] = useState([]);
-  const [items, setItems] = useState({});
+  const [items, setItems] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -35,18 +35,7 @@ function Slot() {
           setError(error);
         }
       );
-    // fetch(`http://lequiledev.zapto.org:8001/auction/getcomments/${id}`)
-    //   .then((res) => res.json())
-    //   .then(
-    //     (result) => {
-    //       console.log(result);
-    //       setNewArray(result);
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    //   );
-  }, []);
+  }, [id]);
 
   // console.log(window.location.href);
 
@@ -161,7 +150,7 @@ function Slot() {
         <Loader />
       )}
 
-      {/* <Chat newArray={items.comments} id={id} /> */}
+      <Chat newArray={items?.comments} id={id} />
     </React.Fragment>
   );
 }
