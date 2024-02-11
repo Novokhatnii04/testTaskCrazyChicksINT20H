@@ -11,7 +11,7 @@ import FormNoRegister from "./FormNoRegister";
 //     surname: "Qssdsdsdsd",
 //     date: "12.05.1999",
 //     phone: "380956025385",
-//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     text: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
 //     id: 1,
 //   },
 //   {
@@ -108,23 +108,23 @@ const ChatComponent = ({ newArray, id }) => {
 
       <ul className={styles.boxList}>
         {newArray &&
-          currentItems.map(
-            ({ nameOfCommentator, time, phone, desc, id }, index) => (
-              <li key={id} className={styles.item}>
-                <div className={styles.infoBoxUser}>
-                  <UserImg name={nameOfCommentator} />
-                  <div className={styles.boxName}>
-                    <p className={styles.name}>{nameOfCommentator}</p>
-                    <p className={styles.date}>{time}</p>
-                  </div>
+          currentItems.map(({ nameOfCommentator, time, text, id }, index) => (
+            <li key={id} className={styles.item}>
+              <div className={styles.infoBoxUser}>
+                <UserImg name={nameOfCommentator} />
+                <div className={styles.boxName}>
+                  <p className={styles.name}>{nameOfCommentator}</p>
+                  <p className={styles.date}>
+                    {new Date(time).toLocaleString()}
+                  </p>
                 </div>
+              </div>
 
-                <p className={index % 2 ? styles.descBlue : styles.descYelow}>
-                  {desc}
-                </p>
-              </li>
-            )
-          )}
+              <p className={index % 2 ? styles.descBlue : styles.descYelow}>
+                {text}
+              </p>
+            </li>
+          ))}
       </ul>
       <div className={styles.boxPagination}>
         {currentPage !== 1 && (
