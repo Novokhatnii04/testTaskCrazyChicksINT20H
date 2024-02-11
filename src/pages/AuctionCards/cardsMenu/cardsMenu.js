@@ -131,11 +131,7 @@ const CardsMenu = () => {
   const handleSortedArray = (value) => {
     let firstWord = value.split("_")[0];
     let secondWord = value.split("_")[1];
-    if (firstWord === "date") {
-      items.sort((a, b) => {
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      });
-    } else if (secondWord === "up") {
+    if (secondWord === "up") {
       items.sort((a, b) => {
         return a[firstWord] - b[firstWord];
       });
@@ -165,7 +161,6 @@ const CardsMenu = () => {
                     </option>
                     <option value="price_up">by price &#9660;</option>
                     <option value="price_down">by price &#9650;</option>
-                    <option value="date">by date &#9650;</option>
                   </select>
                 </label>
               </div>

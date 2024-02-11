@@ -32,9 +32,10 @@ const AddBid = ({ close, state, formData }) => {
 
       const newState = {
         name: state.name,
-        description : state.description,
+        description: state.description,
         price: state.startingBid,
         img: state.name,
+        timerCount: state.auctionDuration,
       };
       console.log(newState);
       handleSendLot(newState);
