@@ -7,13 +7,13 @@ import { selectCard } from "../../Components/Store/store";
 
 function SlotCard({ isActive, data }) {
   const dispatch = useDispatch();
-  const { id, price, title, desc } = data;
+  const { id, price, name, description } = data;
 
   const handleDetailsClick = () => {
     dispatch(selectCard(data));
   };
 
-  const truncatedDesc = desc.length > 20 ? `${desc.substring(0, 20)}...` : desc;
+  const truncatedDesc = description.length > 20 ? `${description.substring(0, 20)}...` : description;
 
   const cardClasses = isActive ? "slider-card active" : "slider-card";
   const photoClasses = isActive ? `slider-photo active` : `slider-photo`;
@@ -29,7 +29,7 @@ function SlotCard({ isActive, data }) {
           <div className="newest-grey-text">
             {truncatedDesc}
           </div>
-          <div className="newest-black-text">{title}</div>
+          <div className="newest-black-text">{name}</div>
         </div>
         <div className="newest-bottom-info">
           <div className="newest-price">
