@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux"; // Імпортуйте useSelector
 import styles from "./styles.module.css";
 import sliderImg from "@images/flag.png";
-import test2 from "@images/test2.png";
-import test from "@images/test.png";
-import test1 from "@images/test1.png";
+import test2 from "@images/test2.jpg";
+import test from "@images/test.jpg";
+import test1 from "@images/test1.jpg";
 import PriceDrop from "./PriceDrop";
 import Modal from "../../Components/Modal/index";
 import AddBid from "./modalBid";
