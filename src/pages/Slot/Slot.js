@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from 'react-redux'; // Імпортуйте useSelector
+import { useSelector } from "react-redux"; // Імпортуйте useSelector
 import styles from "./styles.module.css";
 import sliderImg from "@images/flag.png";
 import sliderImg1 from "@images/footer.jpeg";
@@ -12,16 +12,41 @@ import AddBid from "./modalBid";
 import Question from "../Question/question";
 import Timer from "./timer";
 import Chat from "../../Components/Chat/index";
+import Loader from "../../Components/Loader/loader";
 
 function Slot() {
-  const { id } = useParams();
-  const selectedCard = useSelector(state => state.selectedCard); 
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState(null);
+  const [currentItem, setCurrentItem] = useState(null);
+
+  const { id: idCurrentItem } = useParams()
+
+  useEffect(() => {
+    fetch("http://lequiledev.zapto.org:8001/auction")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+          result.find((el) => el.id === idCurrentItem);
+          console.log('dwdwd')
+          console.log(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+
+  const selectedCard = useSelector((state) => state.selectedCard);
   let lastBid = selectedCard.price;
   let timerCount = selectedCard.timerCount;
-  let idLot = id;
+  let idLot = idCurrentItem;
   let startDate = selectedCard.date;
-  let lotName = selectedCard.title;
-  let description = selectedCard.desc;
+  let lotName = selectedCard.name;
+  let description = selectedCard.description;
 
   const questionInfo = [
     {
@@ -59,7 +84,7 @@ function Slot() {
       setIsModalVisible(!isModalVisible);
     }
 
-    console.log(selectedCard)
+    console.log(selectedCard);
   };
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
@@ -73,46 +98,60 @@ function Slot() {
 
   return (
     <React.Fragment>
-      <div className={`${styles.slotCard} animated`}>
-        <div className={styles.title}>Lot # {idLot}</div>
-        <div className={styles.slotSection}>
-          <div className={styles.photoWrapper}>
-            <div
-              className={styles.sliderPhoto}
-              style={{ backgroundImage: `url(${selectedPhoto})` }}
-            ></div>
-            <div className={styles.smallSliderPhotosWrapper}>
-              {smallSliderPhotos}
-            </div>
-          </div>
-          <div className={styles.infoBlock}>
-            <div className={styles.name}>{lotName}</div>
-            <div className={styles.descrText}>{description}
-            </div>
-            <Timer days={timerCount} startDate={startDate} />
-            <div className={styles.bottomInfo}>
-              <div className={styles.price}>
-                {lastBid} $<div className={styles.greyText} onClick={handlePlaceBidClick}>Last bid</div>
+      {items ? (
+        <div className={`${styles.slotCard} animated`}>
+          <div className={styles.title}>Lot # {idLot}</div>
+          <div className={styles.slotSection}>
+            <div className={styles.photoWrapper}>
+              <div
+                className={styles.sliderPhoto}
+                style={{ backgroundImage: `url(${selectedPhoto})` }}
+              ></div>
+              <div className={styles.smallSliderPhotosWrapper}>
+                {smallSliderPhotos}
               </div>
-              <PriceDrop lastBid={lastBid} onPriceChange={handlePriceChange} />
             </div>
-                <div className={styles.greyText}>Bid history<br/>
-                Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid}
+            <div className={styles.infoBlock}>
+              <div className={styles.name}>{lotName}</div>
+              <div className={styles.descrText}>{description}</div>
+              <Timer days={timerCount} startDate={startDate} />
+              <div className={styles.bottomInfo}>
+                <div className={styles.price}>
+                  {lastBid} $
+                  <div
+                    className={styles.greyText}
+                    onClick={handlePlaceBidClick}
+                  >
+                    Last bid
+                  </div>
                 </div>
-            <div className={styles.button} onClick={handlePlaceBidClick}>
-              Place Bid
+                <PriceDrop
+                  lastBid={lastBid}
+                  onPriceChange={handlePriceChange}
+                />
+              </div>
+              <div className={styles.greyText}>
+                Bid history
+                <br />
+                Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid}
+              </div>
+              <div className={styles.button} onClick={handlePlaceBidClick}>
+                Place Bid
+              </div>
             </div>
           </div>
+          <div className={styles.question}>
+            <Question data={questionInfo} />
+          </div>
+          {isModalVisible && (
+            <Modal close={handlePlaceBidClick}>
+              <AddBid close={handlePlaceBidClick} state={0} />
+            </Modal>
+          )}
         </div>
-        <div className={styles.question}>
-          <Question data={questionInfo} />
-        </div>
-        {isModalVisible && (
-          <Modal close={handlePlaceBidClick}>
-            <AddBid close={handlePlaceBidClick} state={0} />
-          </Modal>
-        )}
-      </div>
+      ) : (
+        <Loader />
+      )}
       <Chat />
     </React.Fragment>
   );
