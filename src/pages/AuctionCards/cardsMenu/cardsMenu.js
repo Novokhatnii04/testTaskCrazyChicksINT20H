@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import FilterIcon from "@images/filterIcon.svg";
 import CardsGrid from "./cardsGrid";
+import Loader from "../../../Components/Loader/loader";
 
 // let _cardsData = [
 //   {
@@ -86,8 +87,10 @@ import CardsGrid from "./cardsGrid";
 // ];
 
 const CardsMenu = () => {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState("Filter");
-  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch("http://lequiledev.zapto.org:8001/auction")
@@ -99,6 +102,22 @@ const CardsMenu = () => {
         },
         (error) => {
           console.log(error);
+        }
+      );
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://lequiledev.zapto.org:8001/auction/`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+          console.log(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
         }
       );
   }, []);
@@ -126,48 +145,45 @@ const CardsMenu = () => {
       });
     }
   };
-  // const sendJsonData = async () => {
-  //   try {
-  //     let response = await fetch("http://localhost:9090/api/v1/auth/register", {
-  //       method: "GET",
-  //       // body: JSON.stringify(testmail1)
-  //     }).then((el) => el.json());
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
 
   return (
-    <>
-      <div className="cards_auction__length">
+    <React.Fragment>
+      {items ? (
         <div>
-          <span>Results : {items.length}</span>
-          <div>
-            <label className="cards_filter__label">
-              <select
-                className="selected_item"
-                value={selectedFilter}
-                // defaultValue={"Filter"}
-                onChange={handleChange}
-              >
-                <option value="Filter" disabled hidden>
-                  Filter &#9660;
-                </option>
-                <option value="price_up">by price &#9660;</option>
-                <option value="price_down">by price &#9650;</option>
-                <option value="date">by date &#9650;</option>
-              </select>
-            </label>
-
-            {/* <button className="cards_filter__button">
-              <span>Filter</span>
-            </button> */}
+          <div className="cards_auction__length">
+            <div>
+              <span>Results : {items.length}</span>
+              <div>
+                <label className="cards_filter__label">
+                  <select
+                    className="selected_item"
+                    value={selectedFilter}
+                    onChange={handleChange}
+                  >
+                    <option value="Filter" disabled hidden>
+                      Filter &#9660;
+                    </option>
+                    <option value="price_up">by price &#9660;</option>
+                    <option value="price_down">by price &#9650;</option>
+                    <option value="date">by date &#9650;</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <span></span>
+          </div>
+          <CardsGrid data={items} />
+        </div>
+      ) : (
+        <div>
+          <div className="cards_auction__loader">
+            <div>
+              <Loader />
+            </div>
           </div>
         </div>
-        <span></span>
-      </div>
-      <CardsGrid data={items} />
-    </>
+      )}
+    </React.Fragment>
   );
 };
 
