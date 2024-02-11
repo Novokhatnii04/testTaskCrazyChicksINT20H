@@ -1,7 +1,6 @@
 import React from "react";
 import CardsMenu from "./cardsMenu/cardsMenu";
 import "./auction.sass";
-import TopHeader from "../Header/TopHeader";
 
 const AuctionCards = () => {
   return (

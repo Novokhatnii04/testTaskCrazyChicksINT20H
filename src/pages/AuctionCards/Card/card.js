@@ -1,14 +1,28 @@
 import React from "react";
 import sliderImg from "@images/flag.png";
 import styles from "./card.module.css";
+import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { selectCard } from '../../../Components/Store/store';
 
-function SlotCard({ isActive, title }) {
+
+function SlotCard({ data, isActive }) {
+  const { id, price, title, desc } = data;
+  const dispatch = useDispatch();
+
   const cardClasses = isActive
     ? `${styles["slider-card"]} ${styles.active}`
     : `${styles["slider-card"]}`;
   const photoClasses = isActive
     ? `${styles["slider-photo"]} ${styles.active}`
     : `${styles["slider-photo"]}`;
+
+    const handleDetailsClick = () => {
+      // console.log("sfsfsfsf", data);
+      dispatch(selectCard(data));
+    };
+    
+
 
   return (
     <div className={cardClasses}>
@@ -25,7 +39,14 @@ function SlotCard({ isActive, title }) {
           <div className={styles["newest-price"]}>
             20 $<div className={styles["newest-grey-text"]}>Last bid</div>
           </div>
-          <div className={styles["newest-button"]}>Details</div>
+          <Link to={`/slot/${id}`} style={{ textDecoration: "none" }}>
+            <div
+              className={styles["newest-button"]}
+              onClick={handleDetailsClick}
+            >
+              Details
+            </div>
+          </Link>
         </div>
       </div>
     </div>
