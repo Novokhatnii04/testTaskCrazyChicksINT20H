@@ -17,6 +17,7 @@ import Loader from "../../Components/Loader/loader";
 function Slot() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [newArray, setNewArray] = useState([]);
   const [items, setItems] = useState({});
   const { id } = useParams();
 
@@ -32,6 +33,17 @@ function Slot() {
         (error) => {
           setIsLoaded(true);
           setError(error);
+        }
+      );
+    fetch("http://lequiledev.zapto.org:8001/auction/newComment")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setNewArray(result);
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
         }
       );
   }, []);
@@ -148,7 +160,7 @@ function Slot() {
       ) : (
         <Loader />
       )}
-      <Chat />
+      <Chat newArray={newArray} id={id} />
     </React.Fragment>
   );
 }

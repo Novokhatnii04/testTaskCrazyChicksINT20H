@@ -66,7 +66,8 @@ const FormNoRegister = ({ close, id }) => {
   };
 
   const sentMessage = (data) => {
-    const url = `http://lequiledev.zapto.org:8001/auction/${id}`;
+    console.log(JSON.stringify(data));
+    const url = `http://lequiledev.zapto.org:8001/auction/newComment/${id}`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -76,7 +77,7 @@ const FormNoRegister = ({ close, id }) => {
       body: JSON.stringify(data), // перетворюємо об'єкт даних в JSON-рядок
     })
       .then((response) => {
-        if (!response.ok) {
+        if (!response) {
           throw new Error("Network response was not ok");
         }
         return response.json(); // повертаємо обіцянку, яка вирішується JSON з відповіддю сервера
