@@ -29,6 +29,13 @@ const AddBid = ({ close, state, formData }) => {
         phone: valuePhone,
         ...formData, // Додано дані з formData
       };
+
+      const newState = {
+        name: state.name,
+        description : state.description,
+        price: state.startingBid,
+        img: state.name,
+      };
       console.log(state);
       handleSendLot(state);
       close();
