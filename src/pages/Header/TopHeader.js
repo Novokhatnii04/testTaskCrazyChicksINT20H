@@ -14,13 +14,19 @@ const TopHeader = () => {
       </Link>
       <div className={styles["sidebar-menu"]}>
         <a href="#" className={styles["sidebar-item"]}>
-          <p>Text</p>
+          <Link to={"/"}>
+            <p>Home</p>
+          </Link>
         </a>
         <a href="#" className={styles["sidebar-item"]}>
-          <p>Partners</p>
+          <Link to={"/auction"}>
+            <p>Auctions</p>
+          </Link>
         </a>
         <a href="#" className={styles["sidebar-item"]}>
-          <p>Help</p>
+        <Link to={"/question"}>
+            <p>Help</p>
+          </Link>
         </a>
       </div>
 
