@@ -38,7 +38,7 @@ const AddBid = ({ close, stateModal, formData, selectedPrice, id }) => {
         timerCount: state.auctionDuration,
       };
       console.log(newState);
-      if (stateModal === 0) {
+      if (stateModal === 1) {
         handleSendLot(newState);
       } else {
         const newState = {

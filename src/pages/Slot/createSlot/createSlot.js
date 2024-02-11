@@ -14,6 +14,7 @@ function UISlot() {
     startingBid: "",
     auctionDuration: "",
     photos: [],
+    url: "",
   });
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -179,7 +180,9 @@ function UISlot() {
               )}
             </div> */}
             <input
+              name="url"
               value={slotData.url}
+              onChange={handleInputChange}
               type="text"
               multiple
               required
