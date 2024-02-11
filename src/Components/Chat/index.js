@@ -1,73 +1,88 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button";
 import UserImg from "../UserImg";
 import styles from "./chat.module.css";
 import Modal from "../Modal";
 import FormNoRegister from "./FormNoRegister";
 
-const newArray = [
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Qssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 1,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Essdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss вввввввввввввввввввввв вввввввввввввввввв в вввввввв фіі ввввввввв іііііі вввввввввв фффффффф вввввввв",
-    id: 2,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Rssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 3,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Zssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 4,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Zssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 5,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Zssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 6,
-  },
-  {
-    name: "Loldsdsdsdsdsdsdsds",
-    surname: "Zssdsdsdsd",
-    date: "12.05.1999",
-    phone: "380956025385",
-    desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
-    id: 7,
-  },
-];
+// const newArray = [
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Qssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 1,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Essdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss вввввввввввввввввввввв вввввввввввввввввв в вввввввв фіі ввввввввв іііііі вввввввввв фффффффф вввввввв",
+//     id: 2,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Rssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 3,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Zssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 4,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Zssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 5,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Zssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 6,
+//   },
+//   {
+//     name: "Loldsdsdsdsdsdsdsds",
+//     surname: "Zssdsdsdsd",
+//     date: "12.05.1999",
+//     phone: "380956025385",
+//     desc: "tredsd sd sdsddd ddddddddd sssssssssss ssssssssssssss",
+//     id: 7,
+//   },
+// ];
 
 const ChatComponent = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [newArray, setNewArray] = useState([]);
   const itemsPerPage = 5;
+
+  useEffect(() => {
+    fetch("http://lequiledev.zapto.org:8001/chat")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setNewArray(result);
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, []);
 
   const toggleModal = () => {
     setShowModal(!showModal);

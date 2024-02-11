@@ -17,7 +17,7 @@ import Loader from "../../Components/Loader/loader";
 function Slot() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,14 +38,14 @@ function Slot() {
 
   // console.log(window.location.href);
 
-  const selectedCard = useSelector((state) => state.selectedCard);
+  // const selectedCard = useSelector((state) => state.selectedCard);
 
-  let lastBid = selectedCard.price;
-  let timerCount = selectedCard.timerCount;
+  let lastBid = items?.price;
+  let timerCount = items?.timerCount;
   let idLot = id;
-  let startDate = selectedCard.date;
-  let lotName = selectedCard.name;
-  let description = selectedCard.description;
+  let startDate = items?.date;
+  let lotName = items?.name;
+  let description = items?.description;
 
   const questionInfo = [
     {

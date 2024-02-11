@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./form.module.css";
 import Button from "../../Button";
 import { notifySucess, notifyError } from "../../../notify/index";
 
-const FormNoRegister = ({ close }) => {
-  const url = "http://lequiledev.zapto.org:8001/auction";
-
+const FormNoRegister = ({ close, id }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -36,7 +34,8 @@ const FormNoRegister = ({ close }) => {
         phone: valuePhone,
         desc: valueDesc,
       };
-      console.log(state);
+
+      sentMessage(state);
       close();
       notifySucess(
         "Your comment has been added successfully! After it is processed by a moderator, you will see it with others together."
@@ -66,9 +65,8 @@ const FormNoRegister = ({ close }) => {
     });
   };
 
-  const sentMessage = () => {
-    const data = { username: "example", password: "12345" };
-
+  const sentMessage = (data) => {
+    const url = `http://lequiledev.zapto.org:8001/auction/${id}`;
     fetch(url, {
       method: "POST",
       headers: {
