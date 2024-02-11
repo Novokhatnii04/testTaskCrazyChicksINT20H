@@ -3,9 +3,6 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux"; // Імпортуйте useSelector
 import styles from "./styles.module.css";
 import sliderImg from "@images/flag.png";
-import test2 from "@images/test2.png";
-import test from "@images/test.png";
-import test1 from "@images/test1.png";
 import PriceDrop from "./PriceDrop";
 import Modal from "../../Components/Modal/index";
 import AddBid from "./modalBid";
@@ -13,6 +10,9 @@ import Question from "../Question/question";
 import Timer from "./timer";
 import Chat from "../../Components/Chat/index";
 import Loader from "../../Components/Loader/loader";
+import photo1 from '@images/photo1.png'
+import photo2 from '@images/photo2.png'
+import photo3 from '@images/photo3.png'
 
 function Slot() {
   const [error, setError] = useState(null);
@@ -28,7 +28,6 @@ function Slot() {
         (result) => {
           setIsLoaded(true);
           setItems(result);
-          console.log(result);
         },
         (error) => {
           setIsLoaded(true);
@@ -47,6 +46,7 @@ function Slot() {
   let startDate = items?.date;
   let lotName = items?.name;
   let description = items?.description;
+  let url = items?.url;
 
   const questionInfo = [
     {
@@ -71,7 +71,7 @@ function Slot() {
     setSelectedPrice(price);
   };
 
-  const slotPhoto = [sliderImg, test2, test, test1];
+  const slotPhoto = [url, photo1, photo2, photo3];
   const handlePhotoClick = (index) => {
     const newSlotPhoto = [...slotPhoto];
     const selectedPhoto = newSlotPhoto[index];
