@@ -13,10 +13,19 @@ function SlotCard({ isActive, data }) {
     dispatch(selectCard(data));
   };
 
-  const truncatedDesc = description.length > 20 ? `${description.substring(0, 20)}...` : description;
+  const truncatedDesc =
+    description.length > 20
+      ? `${description.substring(0, 20)}...`
+      : description;
 
   const cardClasses = isActive ? "slider-card active" : "slider-card";
   const photoClasses = isActive ? `slider-photo active` : `slider-photo`;
+
+  const postCurrentIdCard = () => {
+    fetch(`http://lequiledev.zapto.org:8001/auction/GetId/${id}`, {
+      method: "POST",
+    });
+  };
 
   return (
     <div className={cardClasses}>
@@ -26,9 +35,7 @@ function SlotCard({ isActive, data }) {
       ></div>
       <div className="newest-info-block">
         <div className="newest-text-block">
-          <div className="newest-grey-text">
-            {truncatedDesc}
-          </div>
+          <div className="newest-grey-text">{truncatedDesc}</div>
           <div className="newest-black-text">{name}</div>
         </div>
         <div className="newest-bottom-info">
@@ -40,7 +47,9 @@ function SlotCard({ isActive, data }) {
             style={{ textDecoration: "none" }}
             onClick={handleDetailsClick}
           >
-            <div className="newest-button">Details</div>
+            <button className="newest-button" onClick={postCurrentIdCard}>
+              Details
+            </button>
           </Link>
         </div>
       </div>

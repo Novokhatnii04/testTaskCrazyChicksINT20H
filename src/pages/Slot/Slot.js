@@ -18,21 +18,16 @@ function Slot() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState(null);
-  const [currentItem, setCurrentItem] = useState(null);
-  const [currentId, setCurrentId] = useState(1);
-  const { id: currentJsonId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    setCurrentId(currentJsonId);
-
-    fetch("http://lequiledev.zapto.org:8001/auction")
+    fetch(`http://lequiledev.zapto.org:8001/auction/${id}`)
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
           setItems(result);
-          let findedObject = result.find((el) => el.id === currentId);
-          setCurrentItem(findedObject);
+          console.log(result);
         },
         (error) => {
           setIsLoaded(true);
@@ -41,14 +36,16 @@ function Slot() {
       );
   }, []);
 
+  // console.log(window.location.href);
+
   const selectedCard = useSelector((state) => state.selectedCard);
 
-    let lastBid = selectedCard.price;
-    let timerCount = selectedCard.timerCount;
-    let idLot = currentId;
-    let startDate = selectedCard.date;
-    let lotName = selectedCard.name;
-    let description = selectedCard.description;
+  let lastBid = selectedCard.price;
+  let timerCount = selectedCard.timerCount;
+  let idLot = id;
+  let startDate = selectedCard.date;
+  let lotName = selectedCard.name;
+  let description = selectedCard.description;
 
   const questionInfo = [
     {
@@ -71,7 +68,6 @@ function Slot() {
 
   const handlePriceChange = (price) => {
     setSelectedPrice(price);
-    console.log(price);
   };
 
   const slotPhoto = [sliderImg, test2, test, test1];
@@ -98,7 +94,7 @@ function Slot() {
 
   return (
     <React.Fragment>
-      {currentItem ? (
+      {items ? (
         <div className={`${styles.slotCard} animated`}>
           <div className={styles.title}>Lot # {idLot}</div>
           <div className={styles.slotSection}>
@@ -156,5 +152,4 @@ function Slot() {
     </React.Fragment>
   );
 }
-
 export default Slot;
