@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
 import sliderImg from "@images/flag.png";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { selectCard } from "../../Components/Store/store";
 
 function SlotCard({ isActive, data }) {
   const dispatch = useDispatch();
-  const { id, price, name, description } = data;
+  const { id, price, name, description, img } = data;
 
   const validateName = (name) => {
     if (name.length > 25) {
@@ -16,6 +16,7 @@ function SlotCard({ isActive, data }) {
       return name;
     }
   };
+
 
   const handleDetailsClick = () => {
     dispatch(selectCard(data));
@@ -37,11 +38,7 @@ function SlotCard({ isActive, data }) {
 
   return (
     <div className={cardClasses}>
-      <div
-        className={photoClasses}
-        style={{ backgroundImage: `url(${sliderImg})` }}
-      ></div>
-      {/* <img src=`${url(sliderImg)}` /> */}
+      <img src={img}  className={photoClasses}/>
       <div className="newest-info-block">
         <div className="newest-text-block">
           <div className="newest-grey-text">{truncatedDesc}</div>
