@@ -40,20 +40,20 @@ const AddBid = ({ close, state, formData }) => {
   };
 
   const handleSendLot = (data) => {
-    const url = `http://lequiledev.zapto.org:8001/auction`;
+    const url = `http://lequiledev.zapto.org:8001/auction/Add`;
     fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // встановлюємо тип контенту на JSON
-        // додайте інші заголовки, якщо потрібно
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data), // перетворюємо об'єкт даних в JSON-рядок
+      body: JSON.stringify(data),
     })
       .then((response) => {
+        console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json(); // повертаємо обіцянку, яка вирішується JSON з відповіддю сервера
+        return response.json();
       })
       .then((data) => {
         console.log("Success:", data);
