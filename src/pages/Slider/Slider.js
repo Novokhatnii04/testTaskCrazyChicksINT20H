@@ -3,16 +3,16 @@ import "./styles.css";
 import arrow from "@images/arrowIcon.svg";
 import Card from "./card";
 import Points from "./points";
+import Loader from "../../Components/Loader/loader";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [active, setActive] = useState(1);
   const [sliderSmall, setsliderSmall] = useState(false);
   const [sliderMeduim, setsliderMeduim] = useState(false);
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(null);
 
   useEffect(() => {
     fetch("http://lequiledev.zapto.org:8001/auction")
@@ -21,6 +21,7 @@ const Slider = () => {
         (result) => {
           setIsLoaded(true);
           setItems(result);
+          console.log(result)
         },
         (error) => {
           setIsLoaded(true);
@@ -108,7 +109,7 @@ const Slider = () => {
             className="slider-wrapper"
             style={{ transform: `translateX(${transformValue})` }}
           >
-            {renderVisibleCards()}
+            {!items ? <Loader /> : renderVisibleCards()}
           </div>
         </div>
         {!sliderSmall && (

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
 import Button from "../../Components/Button/index";
+import { notifySucess, notifyError } from "../../notify/index";
 
-const AddBid = ({ close, state }) => { 
+const AddBid = ({ close, state }) => {
   const [name, setName] = useState({
     value: "",
     isValid: true,
@@ -29,7 +30,7 @@ const AddBid = ({ close, state }) => {
       };
       console.log(state);
       close();
-      alert("SUCCESS");
+      notifySucess("Thank you for your confirmation.");
       reset();
     } else {
       return;
@@ -50,6 +51,7 @@ const AddBid = ({ close, state }) => {
       isValid: true,
     });
   };
+
 
   const handleChangeValue = (setName, target) => {
     const { value, name } = target;
@@ -85,14 +87,16 @@ const AddBid = ({ close, state }) => {
           <>
             <p className={styles.boltText}>Thank you for your lot.</p>
             <p className={styles.otherText}>
-              Your auction lot will be published within a few minutes.
+              Your auction lot will be published within a few minutes after
+              confirmation.
             </p>
           </>
         ) : (
           <>
             <p className={styles.boltText}>Thank you for your bid.</p>
             <p className={styles.otherText}>
-              Please leave your contact phone number. We will contact you in case of winning the auction.
+              Please leave your contact phone number. We will contact you in
+              case of winning the auction.
             </p>
           </>
         )}
@@ -161,8 +165,8 @@ const AddBid = ({ close, state }) => {
           />
         </label>
 
-        <Button big={false} text="Відправити" />
-        {/* <button>Відправити</button> */}
+        <Button big={false} text="Confirm" />
+        {/* <button>Confirm</button> */}
       </form>
     </div>
   );

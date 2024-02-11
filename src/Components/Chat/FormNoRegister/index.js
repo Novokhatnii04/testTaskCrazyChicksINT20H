@@ -217,8 +217,8 @@ const FormNoRegister = ({ close }) => {
           />
         </label>
 
-        <Button big={false} text="Відправити" />
-        {/* <button>Відправити</button> */}
+        <Button big={false} text="Confirm" />
+        {/* <button>Confirm</button> */}
       </form>
     </div>
   );
