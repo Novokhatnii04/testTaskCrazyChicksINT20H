@@ -16,7 +16,7 @@ const MainHeader = () => {
             <button>Auctions</button>
           </Link>
         </div>
-        <img src={firstSectionImg} />
+        <img src={firstSectionImg} style={{ borderRadius: '40px' }}/>
       </section>
       <section className={styles.second} />
       <div className={styles.stripe}>{<RunningString />}</div>
