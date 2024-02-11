@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux"; // Імпортуйте useSelector
 import styles from "./styles.module.css";
 import sliderImg from "@images/flag.png";
-import sliderImg1 from "@images/footer.jpeg";
+import test2 from "@images/test2.png";
 import test from "@images/test.png";
 import test1 from "@images/test1.png";
 import PriceDrop from "./PriceDrop";
@@ -74,7 +74,7 @@ function Slot() {
     console.log(price);
   };
 
-  const slotPhoto = [sliderImg, sliderImg1, test, test1];
+  const slotPhoto = [sliderImg, test2, test, test1];
   const handlePhotoClick = (index) => {
     const newSlotPhoto = [...slotPhoto];
     const selectedPhoto = newSlotPhoto[index];
