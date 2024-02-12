@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction_TestTaskCrazyChicken", "Auction\Auction_TestTaskCrazyChicken.csproj", "{C06DEDDA-5B71-4771-BA7D-EEDDC430C6F0}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{297C480D-11A4-4A5A-A8C8-92CA57CDA155}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C06DEDDA-5B71-4771-BA7D-EEDDC430C6F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06DEDDA-5B71-4771-BA7D-EEDDC430C6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06DEDDA-5B71-4771-BA7D-EEDDC430C6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06DEDDA-5B71-4771-BA7D-EEDDC430C6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297C480D-11A4-4A5A-A8C8-92CA57CDA155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297C480D-11A4-4A5A-A8C8-92CA57CDA155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297C480D-11A4-4A5A-A8C8-92CA57CDA155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297C480D-11A4-4A5A-A8C8-92CA57CDA155}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E7BDABB-F596-40FB-A08E-CC4B3DDFE5F9}
+	EndGlobalSection
+EndGlobal
