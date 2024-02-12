@@ -46,7 +46,7 @@ function Slot() {
   let lastBid = items?.price;
   let timerCount = items?.timerCount;
   let idLot = id;
-  let startDate = items?.date;
+  let startDate = items?.startDate;
   let lotName = items?.name;
   let description = items?.description;
   let url = items?.img;
@@ -84,6 +84,8 @@ function Slot() {
   const handlePlaceBidClick = () => {
     if (selectedPrice) {
       setIsModalVisible(!isModalVisible);
+
+      console.log("startDate")
     }
   };
 
@@ -114,7 +116,7 @@ function Slot() {
             <div className={styles.infoBlock}>
               <div className={styles.name}>{lotName}</div>
               <div className={styles.descrText}>{description}</div>
-              {/* <Timer days={timerCount} startDate={startDate} /> */}
+              <Timer days={timerCount} startDate={startDate} />
               <div className={styles.bottomInfo}>
                 <div className={styles.price}>
                   {lastBid} $
@@ -129,11 +131,6 @@ function Slot() {
                   lastBid={lastBid}
                   onPriceChange={handlePriceChange}
                 />
-              </div>
-              <div className={styles.greyText}>
-                Bid history
-                <br />
-                {/* Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid} */}
               </div>
               <div className={styles.button} onClick={handlePlaceBidClick}>
                 Place Bid

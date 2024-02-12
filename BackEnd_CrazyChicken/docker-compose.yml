@@ -1,0 +1,32 @@
+version: '3.4'
+
+networks:
+  auctionapp:
+
+services:
+  auctiondb:
+    image : mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=pass12345#
+    networks:
+      - auctionapp
+
+  auction_testtaskcrazychicken:
+    image: ${DOCKER_REGISTRY-}auctiontesttaskcrazychicken
+    build:
+      context: .
+      dockerfile: Auction/Dockerfile
+    ports:
+       - 8001:5073
+    depends_on:
+       - auctiondb
+    environment:
+       - DB_HOST=auctiondb
+       - DB_NAME=sql1
+       - DB_SA_PASSWORD=pass12345#
+       - ASPNETCORE_URLS=http://+:5073
+    networks:
+       - auctionapp

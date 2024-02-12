@@ -20,7 +20,7 @@ const Slider = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result);
+          setItems(result.reverse());
           console.log(result)
         },
         (error) => {
@@ -95,7 +95,7 @@ const Slider = () => {
 
   return (
     <div className="newest-content-wrapper">
-      <div className="newest-title">Most expensive lots</div>
+      <div className="newest-title">The last slots</div>
       <div className="slider-container">
         {!sliderSmall && (
           <>
