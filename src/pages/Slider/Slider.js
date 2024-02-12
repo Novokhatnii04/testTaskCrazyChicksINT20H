@@ -72,15 +72,15 @@ const Slider = () => {
       }
     }
   };
-
+  
   const renderVisibleCards = () => {
     const visibleCards = [];
-
-    items.forEach((el, index) => {
+  
+    items.slice(0, 3).forEach((el, index) => {
       const isActive = index === active - 1;
       visibleCards.push(<Card key={el.id} isActive={isActive} data={el} />);
     });
-
+  
     return visibleCards;
   };
 
