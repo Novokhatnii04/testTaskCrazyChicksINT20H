@@ -132,11 +132,6 @@ function Slot() {
                   onPriceChange={handlePriceChange}
                 />
               </div>
-              <div className={styles.greyText}>
-                Bid history
-                <br />
-                {/* Time: {new Date(startDate).toLocaleString()}, Bid: {lastBid} */}
-              </div>
               <div className={styles.button} onClick={handlePlaceBidClick}>
                 Place Bid
               </div>
