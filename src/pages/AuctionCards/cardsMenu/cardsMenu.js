@@ -131,14 +131,25 @@ const CardsMenu = () => {
   const handleSortedArray = (value) => {
     let firstWord = value.split("_")[0];
     let secondWord = value.split("_")[1];
-    if (secondWord === "up") {
+    if (firstWord === "startDate") {
       items.sort((a, b) => {
-        return a[firstWord] - b[firstWord];
+        console.log(firstWord);
+        console.log(new Date(a.startDate).getTime());
+        console.log(new Date(b.startDate).getTime());
+        return (
+          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
       });
-    } else if (secondWord === "down") {
-      items.sort((a, b) => {
-        return b[firstWord] - a[firstWord];
-      });
+    } else {
+      if (secondWord === "up") {
+        items.sort((a, b) => {
+          return a[firstWord] - b[firstWord];
+        });
+      } else if (secondWord === "down") {
+        items.sort((a, b) => {
+          return b[firstWord] - a[firstWord];
+        });
+      }
     }
   };
 
@@ -161,6 +172,7 @@ const CardsMenu = () => {
                     </option>
                     <option value="price_up">by price &#9660;</option>
                     <option value="price_down">by price &#9650;</option>
+                    <option value="startDate">by date &#9650;</option>
                   </select>
                 </label>
               </div>
