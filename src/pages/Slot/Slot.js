@@ -29,6 +29,7 @@ function Slot() {
           console.log(`items ${result}`);
           setIsLoaded(true);
           setItems(result);
+          setSlotPhoto(result.img)
         },
         (error) => {
           console.log(error);
@@ -48,7 +49,7 @@ function Slot() {
   let startDate = items?.date;
   let lotName = items?.name;
   let description = items?.description;
-  let url = items?.url;
+  let url = items?.img;
 
   const questionInfo = [
     {
@@ -65,7 +66,7 @@ function Slot() {
     },
   ];
 
-  const [selectedPhoto, setSlotPhoto] = useState(sliderImg);
+  const [selectedPhoto, setSlotPhoto] = useState(url);
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -85,8 +86,6 @@ function Slot() {
       setIsModalVisible(!isModalVisible);
     }
   };
-
-  console.log(`selectedPrice ${selectedPrice}`);
 
   const smallSliderPhotos = slotPhoto.map((src, index) => (
     <div
